@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="show"></div>
+    
+    <input type="text" placeholder="enter movie name" id="movie">
+    <button onclick="getData()">Click Me</button>
+    
+</body>
+</html>
+<script>
+    // promise way
+//    let url = "http://www.omdbapi.com/?i=tt3896198&apikey=26e957db";
+
+//    let mypromise= fetch(url);
+
+//    mypromise.then(function(response){
+
+//     return response.json()
+//    })
+//    .then(function(response){
+//        console.log("response",response)
+//    })
+
+// async awit way
+
+
+// let url = "http://www.omdbapi.com/?i=tt3896198&apikey=26e957db";
+
+var movie = document.getElementById("movie").value;
+async function getData(){
+    
+
+    try{
+        let res = await fetch(`http://www.omdbapi.com/?apikey=26e957db&s=${movie}`);
+
+
+        let data  = await res.json();
+
+        console.log("data:",data)
+
+        appendData(data)
+    }
+    catch(err){
+             console.log("err:",err)
+    }
+}
+ getData();
+
+// try to showing in scree
+
+function appendData(data){
+    document.querySelector("#show").innerHTML = null;
+     
+    let img = document.createElement("img");
+    img.src = data.Poster;
+    // api se aya he poster name not confuse
+
+    document.querySelector("#show").append(img)
+}
+</script>

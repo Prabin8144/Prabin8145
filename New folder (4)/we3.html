@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1tag">First H1</h1>
+    <h1>Second H1</h1>
+    <h3 id="h3">First H3</h3>
+    <h3>Second H3</h3>
+    <h5 id ="h5">First H5</h5>
+    <h5>Second H5</h5>
+    <h5>Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr/>
+    <button onClick ="changeh1()">Change H1</button>
+    <button onClick="changeh3()">Change H3</button>
+    <button onClick = "changeh5()">Change H5</button>
+    <button onClick = "changegreen()">Change Green</button>
+    <button onClick ="changered()">Change Red</button>
+    <button onClick ="changeblue()">Change Blue</button>
+    
+</body>
+</html>
+<script>
+    function changeh1(){
+    document.querySelector("#h1tag").style.color ="red";
+    }
+   function changeh3(){
+      var h3 = document.querySelectorAll("h3");
+      for(var i=0;i<h3.length;i++){
+          h3[i].style.color ="green";
+      }
+   }
+   function changeh5(){
+      var h5 = document.querySelectorAll("h5");
+      for(var i=0;i<h5.length;i++){
+          h5[i].style.color ="blue ";
+      }
+   }
+   function changegreen(){
+      var green = document.getElementsByClassName("green");
+      for(var i=0;i<green.length;i++){
+          green[i].style.color ="green";
+      }
+   }
+   function changeblue(){
+       var blue = document.getElementsByClassName("blue");
+       for(var i=0;i<blue.length;i++){
+           blue[i].style.color = "blue"
+       }
+   }
+   function changered(){
+       var red = document.getElementsByClassName("red");
+       for(var i=0;i<red.length;i++){
+           red[i].style.color = "red"
+       }
+   }
+</script>

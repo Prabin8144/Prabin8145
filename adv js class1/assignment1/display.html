@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,tr,td{
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body>
+   
+  <table id="tb">
+      <thead>
+          <tr>
+              <th>sl.no</th>
+              <th>student </th>
+              <th>ph no</th>
+              <th>city</th>
+          </tr>
+      </thead>
+      <tbody id="info"></tbody>
+  </table>
+</body>
+</html>
+<script>
+    var Data = JSON.parse(localStorage.getItem("studentInfo"));
+    // console.log(deatils,Data.length);
+
+  Data.forEach(function(elem,ind){
+
+      var row = document.createElement("tr");
+
+      var t1 = document.createElement("td");
+      t1.innerText= ind+1;
+
+      var t2 = document.createElement("td");
+      t2.innerText = elem.name;
+
+      var t3 = document.createElement("td");
+      t3.innerText = elem.number;
+
+      var t4 = document.createElement("td");
+      t4.innerText = elem.city;
+       
+       row.append(t1,t2,t3,t4);
+
+       document.querySelector("#info").append(row)
+       
+       
+      console.log(elem,ind)
+
+  })
+</script>

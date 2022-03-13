@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://images.unsplash.com/photo-1492011221367-f47e3ccd77a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHdlYXRoZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60");
+        }
+        h3,h1{
+            text-align: center;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(7,1fr);
+            width: 200px;
+            height: 250px;
+            gap: 25px;
+            text-align: center;
+            margin-top: 50px;
+            
+        }
+        #container>div{
+            border: 1px solid red;
+            width: 200px;
+            height: 250px;
+            color: white;
+            background-image: url("https://media.istockphoto.com/photos/umbrella-standing-out-from-the-crowd-leadership-picture-id1320919703?b=1&k=20&m=1320919703&s=170667a&w=0&h=QaisCxQHQA8RbAUdq3T0e6wffNTd8Y-N4XvVtygV424=");
+
+        }
+        button{
+            background-color: rgb(136, 207, 43);
+            color: blue;
+        }
+        button:hover{
+            background-color: azure;
+           color: rgb(240, 64, 20);
+        }
+        input{
+            padding: 15px;
+            background-color: #eed6d6;
+            color: blue;
+        }
+        iframe{
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h3>GET YOUR WEEK WEATHER DATA JUST PUT YOUR CITY NAME..</h3>
+    <h1>WEATHER BY PRAVEEN</h1>
+    <input type="text" id="city" placeholder="city name">
+
+    <button onclick="getWeather()">Click to Show</button>
+
+    <div id="rr">
+
+    </div>
+    
+    <div id="container">
+
+    </div>
+   
+</body>
+</head>
+<!-- for map adrees -->
+<!-- </html>`api.openweathermap.org/data/2.5/forecast?${city}&cnt=7&appid=7db56084e3ab8e5d806768d941e1ba17&units=matric`)
+ -->
+<script>
+
+// api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
+
+
+    // 7db56084e3ab8e5d806768d941e1ba17 key
+    
+    let container = document.getElementById("container");
+  async function getWeather(){
+  try{
+    let city = document.getElementById("city").value;
+
+    let res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=7&appid=7db56084e3ab8e5d806768d941e1ba17&units=matric`)
+
+     let data = await res.json()
+
+     appendData(data)
+     console.log("data:",data)
+  }
+
+catch(err){
+console.log("err:",err)
+}
+  }
+
+  function appendData(data){
+    container.innerHTML = null;
+
+    let div1 = document.createElement("div")
+
+    let day1 = document.createElement("h3");
+    day1.innerText = "Day 1"
+
+    let list1 = document.createElement("h4")
+    list1.innerText = `city:-${data.city.name}`
+
+    let list2 = document.createElement("h5")
+    list2.innerText = `sunrise:-${data.city.sunrise}`
+
+    let list3 = document.createElement("h5")
+    list3.innerText = `sunset:-${data.city.sunset}`
+
+    let wind1 = document.createElement("p")
+    wind1.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+    div1.append(day1,list1,list2,list3,wind1)
+
+
+    let div2 = document.createElement("div")
+
+    let day2 = document.createElement("h3");
+    day2.innerText = "Day 2"
+
+    let list11 = document.createElement("h4")
+    list11.innerText = `city:-${data.city.name}`
+
+    let list22 = document.createElement("h5")
+    list22.innerText = `sunrise:-${data.city.sunrise}`
+
+    let list33 = document.createElement("h5")
+    list33.innerText = `sunset:-${data.city.sunset}`
+
+    let wind2 = document.createElement("p")
+    wind2.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+    div2.append(day2,list11,list22,list33,wind2)
+
+
+    let div3 = document.createElement("div")
+
+    let day3 = document.createElement("h3");
+    day3.innerText = "Day 3"
+
+    let list111 = document.createElement("h4")
+    list111.innerText = `city:-${data.city.name}`
+
+    let list222 = document.createElement("h5")
+    list222.innerText = `sunrise:-${data.city.sunrise}`
+
+    let list333 = document.createElement("h5")
+    list333.innerText = `sunset:-${data.city.sunset}`
+
+    let wind3 = document.createElement("p")
+    wind3.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+    div3.append(day3,list111,list222,list333,wind3)
+
+
+    let div4 = document.createElement("div")
+
+    let day4 = document.createElement("h3");
+    day4.innerText = "Day 4"
+
+    let list1111 = document.createElement("h4")
+    list1111.innerText = `city:-${data.city.name}`
+
+    let list2222 = document.createElement("h5")
+    list2222.innerText = `sunrise:-${data.city.sunrise}`
+
+    let list3333 = document.createElement("h5")
+    list3333.innerText = `sunset:-${data.city.sunset}`
+
+    let wind4 = document.createElement("p")
+    wind4.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+    div4.append(day4,list1111,list2222,list3333,wind4)
+
+
+    let div5 = document.createElement("div")
+
+    let day5 = document.createElement("h3");
+    day5.innerText = "Day 5"
+
+    let list11111 = document.createElement("h4")
+    list11111.innerText = `city:-${data.city.name}`
+
+    let list22222 = document.createElement("h5")
+    list22222.innerText = `sunrise:-${data.city.sunrise}`
+
+    let list33333 = document.createElement("h5")
+    list33333.innerText = `sunset:-${data.city.sunset}`
+
+    let wind5 = document.createElement("p")
+    wind5.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+    div5.append(day5,list11111,list22222,list33333,wind5)
+
+
+
+    let div6 = document.createElement("div")
+
+let day6 = document.createElement("h3");
+day6.innerText = "Day 6"
+
+let list111111 = document.createElement("h4")
+list111111.innerText = `city:-${data.city.name}`
+
+let list222222 = document.createElement("h5")
+list222222.innerText = `sunrise:-${data.city.sunrise}`
+
+let list333333 = document.createElement("h5")
+list333333.innerText = `sunset:-${data.city.sunset}`
+
+let wind6 = document.createElement("p")
+wind6.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+div6.append(day6,list111111,list222222,list333333,wind6)
+
+
+let div7 = document.createElement("div")
+let day7 = document.createElement("h3");
+day7.innerText = "Day 7"
+
+let list1111111 = document.createElement("h4")
+list1111111.innerText = `city:-${data.city.name}`
+
+let list2222222 = document.createElement("h5")
+list2222222.innerText = `sunrise:-${data.city.sunrise}`
+
+let list3333333 = document.createElement("h5")
+list3333333.innerText = `sunset:-${data.city.sunset}`
+
+let wind7 = document.createElement("p")
+wind7.innerText  = `Wind spped:-${data.city.id} kp/h`
+
+div7.append(day7,list1111111,list2222222,list3333333,wind7)
+
+container.append(div1,div2,div3,div4,div5,div6,div7)
+
+
+
+
+iframe = document.createElement("iframe")
+document.querySelector("#rr").innerHTML = null
+         iframe.src = `https://maps.google.com/maps?q=${data.city.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+
+         iframe.height = "300px";
+         iframe.width = "500px"
+
+         document.querySelector("#rr").append(iframe)
+  }
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text" id="city">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+// AIzaSyBfK7vI_Fuw7zY9joNhB3_RoIJvbsbfoxU    GOOGLE MAPS KEY
+// (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7db56084e3ab8e5d806768d941e1ba17&units=metric`)
+// url 7db56084e3ab8e5d806768d941e1ba17
+// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+// for googlemaps embdedgooglemaps.......
+// <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/amps?q=mumbai&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123 movies</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net">embedgooglemap.net</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>
+
+let container = document.getElementById("container")
+async function getWeather(){ 
+
+try{
+
+    let city= document.getElementById("city").value;
+    
+    let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7db56084e3ab8e5d806768d941e1ba17&units=metric`);
+
+   let data = await res.json();
+
+   appendData(data)
+   console.log("data:",data);
+
+ 
+}
+     catch(err){
+    console.log("err:",err);
+};
+};
+
+
+function appendData(data){
+
+    container.innerHTML = null;
+
+    let name = document.createElement("h3")
+    name.innerText = data.name;
+    
+    let temp = document.createElement("h3");
+
+    temp.innerText = data.main.temp;
+
+    let pressure = document.createElement("h3");
+     
+    pressure.innerText = data.main.pressure;
+
+    let humidity = document.createElement("h3");
+
+    humidity.innerText = data.main.humidity;
+
+    // for map of city
+//    for google maps...............
+    let iframe = document.createElement("iframe")
+    iframe.src=`https://maps.google.com/amps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`;
+
+    container.append(name,temp,pressure,humidity,iframe);
+
+}
+
+</script>

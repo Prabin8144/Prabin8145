@@ -1,0 +1,189 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script> -->
+    // const product  = {
+    //     brand:"nike",
+    //     logo:"right",
+    //     seller:"flipkartcart",
+    // }
+    //  const user = Object.create(product ,)
+    //  console.log("user",user)
+
+
+
+<!-- swand sir s code foe creatring arr and inheritance & prototype -->
+
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>
+
+<script>
+  const cat = {
+    name: "cat",
+    legs: 4,
+    furs: true,
+    tail: true,
+    type: "mammel",
+  };
+
+  // const tiger = {
+  //   name: "tiger",
+  //   legs: 4,
+  //   furs: true,
+  //   tail: true,
+  //   type: "mammal",
+  // };
+
+  // const lion = {
+  //   name: "lion",
+  //   legs: 4,
+  //   furs: true,
+  //   tail: true,
+  //   type: "mammal",
+  // };
+
+  //Object.create
+
+  // const tiger = Object.create(cat);
+
+  // tiger.name = "tiger";
+
+  // console.log("tiger:", tiger.name);
+
+  // const Masai_student = {
+  //   batch: "web 16",
+  //   institue: "Masai School",
+  //   current_unit: 3,
+  //   nickname: "pikachus",
+  // };
+
+  // const s1 = Object.create(Masai_student, { name: { value: n } });
+
+  // console.log("s1:", s1);
+
+  //flipkart products catalogue - nike products( brand, logo, seller)
+
+  //call apply bind - zoomcar, hotel
+  //Object.create - own car, own house
+
+  //Prototype chain
+
+  // let grandfather = {
+  //   eyes: "blue",
+  // };
+
+  // let father = Object.create(grandfather);
+
+  // father.eyes = "yellow";
+  // let son = Object.create(father);
+  // console.log("son:", son.eyes);
+
+  //hasOwnProperty
+
+  // function Shoes(s) {
+  //   (this.brand = "adidas"), (this.type = s), (this.seller = "flipkart");
+  // }
+
+  // Shoes.prototype.sale = function () {
+  //   console.log("20% off, its pablos birthday");
+  // };
+
+  // Shoes.prototype.owner = "Nike";
+
+  // let s1 = new Shoes("sneakers");
+
+  // let s2 = new Shoes("loafers");
+  // console.log("s2:", s2);
+
+  // //s2.brand;
+  // console.log("s2.brand:", s2.brand);
+
+  // //Array
+
+  // let arr = [1, 2, 3];
+  // console.log("arr:", arr);
+
+  //arr.push()
+
+  //console.log("s1:", s1);
+
+  // function x(msg) {
+  //   console.log(msg);
+  // }
+
+  // x("my name is guddu");
+
+  //let arr = [1,2,3]
+
+  let arr1 = new Array("a", "b", "c");
+  console.log("arr1:", arr1);
+
+  function Abrakadabra() {
+    Object.defineProperty(this, "length", {
+      value: 0, // better than `undefined`
+      writable: true, // important!
+      enumerable: false, // could be omitted
+    });
+
+    for (let i = 0; i < arguments.length; i++) {
+      //index: value
+
+      this[i] = arguments[i];
+    }
+
+    this.length = arguments.length;
+  }
+
+  Abrakadabra.prototype.पुश = function (value) {
+    let index = this.length;
+
+    this[index] = value;
+
+    this.length++;
+  };
+
+  Abrakadabra.prototype.हटाओ = function () {
+    let index = this.length - 1;
+
+    delete this[index];
+
+    this.length--;
+  };
+
+  let arr = new Abrakadabra("a", "b", "c");
+
+  arr.पुश("d");
+  arr.पुश("e");
+
+  arr.हटाओ();
+  arr.हटाओ();
+
+  console.log("arr:", Object.values(arr));
+
+  //create an object
+
+  //localStorage
+  //.createElement()
+  //appending()
+</script>
+
+</script>

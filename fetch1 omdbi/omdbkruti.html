@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        #searchDiv{
+            background-color: #333545;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        button{
+            border: none;
+            background-color: #f84464;
+            color: #fff;
+            font-size: 20px;
+            border-radius: 5px;
+            padding: 8px 25px;
+            margin-left: 10px;
+        }
+        input{
+            width: 400px;
+            border-radius: 5px;
+            border: none;
+        }
+        #displayDiv{
+            
+            width: 90%;
+            margin: auto;
+            margin-top:50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 40px;
+            text-align: center;
+        }
+        #displayDiv > div{
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            
+        }
+        #displayDiv > div:hover{
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        }
+        img{
+            border-top-left-radius:5px;
+            border-top-right-radius:5px;
+            width: 100%;
+            height: 300px;
+        }
+        #errorDiv{
+            margin-top:50px;
+            text-align: center;
+            color: #767676;
+        }
+    </style>
+</head>
+<body>
+    <div id="searchDiv">
+        <input type="text" id="search" placeholder="Search movie">
+        <button onclick="getMovie()">Search</button>
+    </div>
+    <div id="errorDiv"></div>
+    <div id="displayDiv"></div>
+</body>
+</html>
+<script>
+// url=`https://www.omdbapi.com/?s=${movie}&apikey=c6f78eb7`;
+
+    function getMovie() //on click function
+    {
+        let movie = document.getElementById("search").value;//value movie name after search
+       
+        let url = `https://www.omdbapi.com/?s=${movie}&apikey=c6f78eb7`;//url and key
+
+        console.log(url);
+
+        async function getData()
+        {
+            try{//resolve promise
+                let res = await fetch(url);
+                let data = await res.json();
+                let movieData = data.Search;
+                console.log(movieData);
+                displayMovie(movieData);//dispaly vala function call
+            }
+            catch (err)//reject promise
+            {
+            console.log("err:", err);
+             }   
+        }
+        getData();
+
+        function displayMovie(data)
+        {
+            let container = document.getElementById("displayDiv");
+            displayDiv.innerHTML = null;
+            let errorDiv = document.getElementById("errorDiv");
+            errorDiv.innerHTML = null;
+
+            data.map(function(elem){
+                let div = document.createElement("div");
+
+                let img = document.createElement("img");
+                img.src = elem.Poster;//image catch
+                img.alt = "Movie Poster"
+
+                let title = document.createElement("h3");
+                title.innerText = elem.Title;//movie name
+
+                let year = document.createElement("p");
+                year.innerText = `Year: ${elem.Year}`;//year
+
+                let type = document.createElement("p");
+                type.innerText = `Type: ${elem.Type}`;//type
+
+                div.append(img, title, year, type);
+                container.append(div);
+            })
+        }     
+}
+</script>

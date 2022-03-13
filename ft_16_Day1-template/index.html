@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+   <style>
+     #throw_dice{
+       height: 100px;
+       width: 150px;
+       text-align: center;
+       font-size: 30px;
+     
+       background-color: brown;
+     }
+   </style>
+  </head>
+  <body>
+    <div>
+      <!--Create a button that says, 'Throw dice' button. Give this button HTML id as "throw_dice"-->
+      <button id="throw_dice">Throw dice</button>
+    </div>
+  </body>
+</html>
+<script>
+  // by using this we can  find the random value ....
+document.querySelector("#throw_dice").addEventListener("click",function(){
+  let x = Math.floor(Math.random()*6+1);
+  localStorage.setItem("number",x);
+  window.location.href = "display.html";
+});
+</script>

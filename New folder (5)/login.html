@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="form">
+    <input id="user" type="text" placeholder="Enter username">
+    <input id="pass" type="text" placeholder="Enter password">
+    <input type="submit" value="login">
+</form>
+</body>
+</html>
+<script>
+    var regdUser = JSON.parse(localStorage.getItem("signUpDetails"));
+    console.log(regdUser);
+    
+    document.querySelector("input[type='submit']").addEventListener("click",function(){
+         var user = form.user.value;
+         var pass = form.pass.value;  
+        //  console.log(user,pass)
+        var flag= 0;
+        for(var i =0;i<regdUser.length;i++){
+            if(regdUser[i].user == user && regdUser[i].pass == pass){
+              flag =1;
+            }
+        }
+        if(flag ==1){
+            document.querySelector("input[type='submit']").addEventListener("click",function(){
+            window.location.href = "choose.html"
+            })
+            }
+        
+        else{
+            alert("Login failed")
+        }
+
+    });
+
+       
+
+</script>

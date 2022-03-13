@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #ram{
+        display:grid;
+        grid-template-columns: repeat(5,1fr);
+      }
+    </style>
+</head>
+<body>
+    <div id="ram">
+
+    </div>
+</body>
+</html>
+
+
+
+<script>
+    // var cartArr = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // console.log(cartArr)
+    
+
+
+    function displayData(Items){
+
+    document.querySelector("#ram").innerHTML="";
+    Items.map(function(elem){
+
+    var mainDiv = document.createElement("div");
+
+
+    var img = document.createElement("img");
+    img.setAttribute("src",elem.image_url)
+
+    var name= document.createElement("b")
+    name.innerText = elem.name
+
+    var innerDiv = document.createElement("div")
+
+    var price = document.createElement("p")
+    price.innerText = elem.price
+
+    var strikedoffprice = document.createElement("s")
+    strikedoffprice.innerText = elem.strikedoffprice
+
+    innerDiv.append(price,strikedoffprice)
+    innerDiv.setAttribute("class","priceDiv")
+
+    mainDiv.append(img,name,innerDiv);
+  
+   
+    document.querySelector("#ram").append(mainDiv);
+     
+    });
+
+  }
+  displayData(cartArr);
+
+  //  function showTotal(){
+  //   var total = cartArr.reduce(function(acc,elem,index,array){
+  //     return acc+(items.price * item.quant) ;
+  //   },0);
+    // document.getElementById()
+    
+</script>

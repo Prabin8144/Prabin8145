@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ram{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: 50px 200px;
+            grid-template-areas: 
+            "a a a a"
+            "b c d e";
+            gap: 20px;
+            
+        }
+        .ram>div{
+            border: 1px solid green;
+            
+            
+        }
+        .ram>div:nth-child(1){
+            grid-area: a;
+            background-color: yellow;
+
+        }
+        .ram>div:nth-child(2){
+            grid-area: b;
+            background-color: red;
+            
+        }
+        .ram>div:nth-child(3){
+            grid-area: c;
+            background-color: green;
+            
+        }
+        .ram>div:nth-child(4){
+            grid-area: d;
+            background-color: royalblue;
+            
+        }
+        .ram>div:nth-child(5){
+            grid-area: e;
+            background-color: slategrey;
+            
+        }
+
+       @media all and (min-width:380px) and (max-width:780px){
+           .ram{
+               grid-template-columns: repeat(2,1fr);
+              grid-template-rows:50px 200px 200px ;
+              grid-template-areas: 
+              "a a"
+              "b d "
+              "c e";
+           }
+       }
+       @media all and (min-width:50px) and (max-width:381px){
+        .ram{
+               grid-template-columns: repeat(1,1fr);
+              grid-template-rows:40px 100px 100px 100px 100px ;
+              grid-template-areas: 
+              "a "
+              "e "
+              "b "
+              "c"
+              "d";
+           }
+       }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="ram">
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+        <div>e</div>
+    </div>
+</body>
+</html>

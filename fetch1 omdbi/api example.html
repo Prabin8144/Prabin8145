@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #cont{
+        display: grid;
+        grid-template-columns: repeat(4,50%);
+        gap: 20px;
+    }
+    img{
+        width: 40%;
+    }
+    #cont div{
+        border: 1px solid salmon;
+    }
+</style>
+</head>
+<body>
+    <div id="cont">
+
+    </div>
+</body>
+</html>
+<script>
+
+
+// prise wala
+    // let url = "https://fakestoreapi.com/products";
+
+    // let mypromise = fetch(url);
+
+    // mypromise.then(function(response){
+    //     return response.json()
+    // })
+    // .then(function(response){
+    //     console.log("response:",response)
+    // })
+
+// async awit
+let url = "https://fakestoreapi.com/products";
+async function getData()
+{
+    try{  
+
+        let res = await fetch(url)
+    let data = await res.json();
+    console.log("data:",data)
+
+    appenProducts(data)
+    }
+    catch(error){
+   console.log("error:",error)
+    }
+}   
+ 
+       getData(); 
+    
+
+
+    //    appendig
+    let container = document.getElementById("cont");
+    function appenProducts(data){
+        data.forEach(function(elem){
+            let div = document.createElement("div");
+
+            let img = document.createElement("img");
+            img.src = elem.image;
+            let title = document.createElement("p");
+            title.innerText = elem.title;
+            let desc = document.createElement("p");
+            desc.innerText = elem.description;
+            let price = document.createElement("h5");
+            price.innerText = elem.price;
+
+            div.append(img,title,price,desc);
+
+            container.append(div);
+        })
+    }
+        
+    
+</script>

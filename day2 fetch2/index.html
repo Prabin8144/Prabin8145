@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map fetch</title>
+    <style>
+        
+        body{
+           background-image: url("https://images.unsplash.com/photo-1516912481808-3406841bd33c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8d2VhdGhlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60");
+        }
+        #container{
+            color: white;
+            margin: auto;
+            width: 50%;
+            text-align: center;
+            background-color: bisque;
+            background-image: url('https://c.tenor.com/oWEQuI-bw90AAAAM/storm-lightning.gif');
+            
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="city">
+    <button onclick="getWeather()">Get Weather</button>
+
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script>
+//   AIzaSyBkc_-9YKPBBmJzJFzYXoGei6cr7YgbadY api key google maps
+
+   let container = document.getElementById("container")
+  async function getWeather(){
+       try{
+   let city = document.getElementById("city").value;
+
+   let res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7db56084e3ab8e5d806768d941e1ba17&units=metric`);
+
+   let data = await res.json();
+
+   appendData(data)
+   console.log("data:",data)
+ }
+ catch(err){
+     console.log("err:",err)
+ }
+
+   };
+
+   function appendData(data){
+       container.innerHTML = null;
+       
+         let name = document.createElement("h2")
+         name.innerText = `City:-${data.name}`;
+         
+         let tempmin= document.createElement("h2")
+         tempmin.innerText = `Temp_Min:-${data.main.temp_min}*c`;
+           
+
+         let tempmax = document.createElement("h4")
+         tempmax.innerText = `Temp_Max:-${data.main.temp_max}
+         *c`;
+         
+         let wind = document.createElement("h4")
+         wind.innerText = `Wind:-${data.wind.speed} per hr`;
+
+         let sunset = document.createElement("h5")
+         sunset.innerText = `Sunset:-${data.sys.sunset}`;
+
+
+         let sunrise = document.createElement("h5")
+         sunrise.innerText = `Sunrise:-${data.sys.sunrise}`;
+
+
+         let clouds = document.createElement("h4")
+         clouds.innerText =`Cloud:-${data.clouds.all} cold`;
+
+        
+
+         iframe = document.createElement("iframe")
+         iframe.src = `https://maps.google.com/maps?q=${data.name}&t=&z=13&ie=UTF8&iwloc=&output=embed`
+
+         iframe.height = "300px";
+         iframe.width = "500px"
+        
+         container.append(name,tempmin,tempmax,wind,sunset,sunrise,clouds,iframe)
+
+   }
+
+
+
+</script>

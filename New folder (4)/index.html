@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang=“en”>
+  <head>
+    <meta charset=“UTF-8" />
+    <meta http-equiv=“X-UA-Compatible” content=“IE=edge” />
+    <meta name=“viewport” content=“width=device-width, initial-scale=1.0" />
+    <title>Unit-2 C2</title>
+    <style>
+      #courses{
+          display: grid;
+          grid-template-columns: repeat(3,1fr);
+          grid-template-rows:150px 150px;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+      }
+      #courses>div{
+          width: 80%;
+          margin:auto;
+          
+          
+          
+          font-family: sans-serif;
+      }
+      #courses img{
+          border-radius: 50%;
+          
+          
+      }
+      img+b{
+          font-size: 20px;
+          
+      }
+      b+p{
+          margin-left:10px;
+      }
+      h1{
+          text-align: center;
+      }
+      h1+p{
+          text-align: center;
+      }
+      #teachers{
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          grid-template-rows:450px ;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+      }
+      #teachers>div{
+          background-color: azure;
+          margin: auto;
+      }
+      h3{
+          text-align: center;
+          margin-top: auto;
+      }
+      h3+p{
+          color: red;
+          text-align: center;
+          margin-top:-15px;
+      }
+      p+p{
+          text-align: center;
+      }
+      @media only screen and (min-width: 421px) and (max-width: 720px) {
+        #courses{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          grid-template-rows:150px 150px 150px;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+    }
+    #teachers{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          grid-template-rows:450px 450px;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+    }
+}
+      /* small screens */
+      @media only screen and (min-width: 50px) and (max-width: 420px) {
+        #courses{
+          display: grid;
+          grid-template-columns: repeat(1,1fr);
+          grid-template-rows:150px 150px 150px 150px;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+    }
+    #teachers{
+          display: grid;
+          grid-template-columns: repeat(1,1fr);
+          grid-template-rows:450px 450px 450px 450px ;
+          gap: 15px;
+          width: 70%;
+          margin: auto;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <!-- Courses section - top section -->
+    <div id="courses">
+        <div>
+            <img src="https://via.placeholder.com/50">
+            <b>Business School</b>
+            <P>masai school is best ever school for me it builds student carrior.</P>
+        </div>
+        <div><img src="https://via.placeholder.com/50">
+            <b>Marketing</b>
+            <P>masai school is best ever school for me it builds student carrior.</P></div>
+        <div><img src="https://via.placeholder.com/50">
+            <b>Photography</b>
+            <P>masai school is best ever school for me it builds student carrior.</P></div>
+        <div><img src="https://via.placeholder.com/50">
+            <b>Social Media</b>
+            <P>masai school is best ever school for me it builds student carrior.</P></div>
+        <div><img src="https://via.placeholder.com/50">
+            <b>Development</b>
+            <P>masai school is best ever school for me it builds student carrior.</P></div>
+        <div><img src="https://via.placeholder.com/50">
+            <b>Design</b>
+            <P>masai school is best ever school for me it builds student carrior.</P></div>
+
+    </div>
+    <h1>Certified Teachers</h1>
+    <p id=“description”>
+      Separated they live in. A small river named Duden flows by their place and
+      supplies it with the necessary regelialia. It is a paradisematic country
+    </p>
+    <!-- Teachers Section -->
+    <div id="teachers">
+        <div>
+            <img src="https://via.placeholder.com/320x350">
+            <h3>avinash sharma</h3>
+            <p>from hyderabad</p>
+            <p>he is highly quallified madam have an exparience os 15year</p>
+        </div>
+        <div><img src="https://via.placeholder.com/320x350">
+            <h3>chandra sekhar</h3>
+            <p>from hyderabad</p>
+            <p>he is highly quallified madam have an exparience os 15year</p></div>
+        <div><img src="https://via.placeholder.com/320x350">
+            <h3>nurpul</h3>
+            <p>from hyderabad</p>
+            <p>he is highly quallified madam have an exparience os 15year</p></div>
+        <div><img src="https://via.placeholder.com/320x350">
+            <h3>pawan</h3>
+            <p>from hyderabad</p>
+            <p>he is highly quallified madam have an exparience os 15year</p></div>
+    </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://miro.medium.com/max/1400/1*XarnoDp8crg1gsDWV6Jrpg.gif");
+        }
+        h1{
+            color: chartreuse;
+            text-align: center;
+        }
+        input{
+            width: 200px;
+            margin-left: 1300px;
+        }
+        #container{
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            color: red;
+           
+            overflow:scroll;
+            
+        }
+        button{
+            margin-left: 1400px;
+            box-sizing: border-box;
+            background-color: black;
+            color: red;
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>YOUR MOVIES</h1>
+      <input  oninput="debounce(main,2000)" type="text" id="query">
+      <button id="button">Search</button>
+
+      <div id="container" >
+
+      </div>
+</body>
+</html>
+<script>
+    // it should be global
+  let timeperiod ;
+   let container = document.getElementById("container");
+
+  async function searchMovie(){
+       try{
+
+        var input = document.getElementById("query").value;
+
+        let res = await fetch(`http://www.omdbapi.com/?apikey=4ac9e285&s=${input}`)
+
+        let data = await res.json()
+
+        let moveis = data.Search
+        appendData(moveis)
+        console.log("data:",data)
+
+       }   
+       catch(err){
+           console.log("err:",err)
+       }
+   }
+
+   function appendData(data){
+       container.innerHTML = null;
+       if(data==undefined){
+           return false;
+       }
+       data.forEach(function(el){
+           let p = document.createElement("p")
+           p.innerText = el.Title;
+
+           container.append(p)
+       })
+   }
+
+
+   async function main(){
+       try{
+       let data = await searchMovie();
+   
+   if(data==undefined){
+       return false
+   }
+}
+   catch(err){
+       console.log("err:",err)
+   }
+   }
+
+
+   function debounce(func,delay){
+       if(timeperiod){
+           clearTimeout(timeperiod)
+       }
+
+     timeperiod = setTimeout(function(){
+
+        func();
+    },delay)
+
+   }
+
+
+   document.querySelector("#button").addEventListener("click",function(){
+   localStorage.setItem("moveis" ,JSON.stringify(el.Title))
+ })
+
+   
+
+ 
+</script>

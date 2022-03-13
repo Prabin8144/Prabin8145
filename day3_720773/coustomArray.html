@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREATING ARRAY</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+                function creatingArray(){
+
+                    Object.defineProperty(this,"length",{
+                        value:0,
+                        writable:true,
+                        enumerable:false,
+                    });
+                    for(let i=0;i<arguments.length ;i++){
+                        // index:value
+                        this[i]=arguments[i];
+                    }
+                    this.length = arguments.length;
+                }
+                creatingArray.prototype.push = function(value){
+                    let index = this.length;
+                    this[index] = value;
+                    this.length++;
+                };
+
+                creatingArray.prototype.pop = function(){
+                    let index = this.length-1;
+                    delete this[index];
+
+                    this.length--;
+                };
+
+               
+
+                   
+
+
+
+                let arr = new creatingArray("a","b","c","d");
+
+                arr.push("r");
+                arr.push("e");
+
+                arr.pop();
+              
+               
+                
+                console.log("arr",Object.values(arr));
+
+
+                // arr.prototype.reverse = function(){
+                //     let Arr = [];
+                //     for(var i =this.length;i>=0;i++){
+                //         Arr.push(creatingArray[i])
+                //     }
+                //     return Arr;
+
+                //     console.log(arr.reverse())
+                // }
+                
+            </script>

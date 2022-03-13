@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+            font-size: 30px;
+            font-style: bold;
+            text-align: center;
+            padding: 20px;
+            width: auto;
+        }
+        #ram{
+            display: grid;
+            grid-template-columns:repeat(3,1fr);
+            grid-template-rows: repeat(1,500px);
+            gap: 50px;
+            margin-top: 40px;
+            background-color: rgb(252, 248, 244);
+        }
+        #ram>div{
+            
+            background-color: rgb(246, 250, 250);
+            
+
+            
+        }
+        img{
+            width:100%;
+            height: 300px;
+        }
+        img+h3{
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+         @media all and (min-width:381px) and (max-width:750px){
+             #ram{
+                 grid-template-columns:repeat(2,1fr);
+                 grid-template-rows: repeat(2,500px);
+             }
+           
+         }
+         @media all and (min-width:70px) and (max-width:380px){
+             #ram{
+                 grid-template-columns: repeat(1,1fr);
+                 grid-template-rows: repeat(3,500px);
+             }
+            
+         }
+
+       
+    </style>
+</head>
+<body>
+    <div class="father">OUR BLOG</div>
+    <div id="ram">
+        <div>
+            <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Aayushi_527cd1c2a3.jpg">
+            <h3>masai scholl is the best school forever i dont know that i also a web devloper</h3>
+            <p>masai school :web-16-2021</p>
+            <p>I got placed within 2 days after graduation! I’m happy I am part of the Masai family, not because they helped me but because of their mission thts why i am here.</p>
+        </div>
+        <div> <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Kritika_Tripathi_716c47cbbd.jpg">
+            <h3>masai scholl is the best school forever i dont know that i also a web devloper</h3>
+            <p>masai school :web-16-2021</p>
+            <p>I got placed within 2 days after graduation! I’m happy I am part of the Masai family, not because they helped me but because of their mission thts why i am here.</p></div>
+        <div> <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/Aayushi_527cd1c2a3.jpg">
+            <h3>masai scholl is the best school forever i dont know that i also a web devloper</h3>
+            <p>masai school :web-16-2021</p>
+            <p>I got placed within 2 days after graduation! I’m happy I am part of the Masai family, not because they helped me but because of their mission thts why i am here.</p></div>
+    </div>
+</body>
+</html>

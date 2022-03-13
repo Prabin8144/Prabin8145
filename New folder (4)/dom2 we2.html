@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <form id="myform">
+      <input type ="text" placeholder="My Name" id="name" />
+      <input type ="text" placeholder="My age" id="age" />
+      <select  id="gender">
+          <option value="male">M</option>
+          <option value="female">F</option>
+          <input type ="text" placeholder="My mail" id="mail" />
+          <input type ="number" placeholder="My mob" id="mob" />
+          <button id="submit">submit</button>
+      </select>
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#myform").addEventListener("submit",myFunction);
+    var student =[];
+    function myFunction(event){
+        event.preventDefault();
+   var name = document.querySelector("#name").value;
+   var age = document.querySelector("#age").value;
+   var gender = document.querySelector("#gender").value;
+   var mail = document.querySelector("#mail").value;
+   var number = document.querySelector("#mob").value;
+
+   var studentObj ={
+       studentName: name,
+       studentAge: age,
+       studentGender: gender,
+       studentEmail: mail,
+       studentMobile:number,
+   };
+   student.push(studentObj);
+   console.log(student);
+    }
+
+
+</script>

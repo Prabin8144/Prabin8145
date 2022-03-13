@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .priceDiv{
+         display: flex;
+         justify-content: space-between; 
+         color:darkgoldenrod;
+      }
+      #ram{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 50px;
+        background-color: aquamarine;
+      }
+    </style>
+</head>
+<body>
+  <button onClick="window.location.href='cart.html'">go to Cart</button>
+
+  <select onchange="sortItems()" id="sorter">
+    <option value="">Sort By</option>
+    <option value="h2l">High To Low</option>
+    <option value="l2h">Low To High</option>
+
+  </select>
+
+  <select onchange="filterItems()" id="filter">
+    <option value="">Filter By</option>
+    <option value="5000"> >5000</option>
+    <option value="5000"> >3000</option>
+    <option value="3000"> >1000</option>
+
+  </select>
+  <button onclick="clearfilters()">RESET</button>
+  <!-- FOR CLEAR THE FILTER -->
+
+  <input id="search" onkeyup="search()" />
+  <h1 id="items">0</h1>
+    <div id="ram">
+
+    </div>
+    
+</body>
+</html>
+
+<!-- <script src="mens data.js"></script> -->
+<script>
+
+// var myCart = document.createElement("button")
+//   myCart.innerText = "go to cart"
+  
+//   myCart.addEventListener("click",function(){
+//     mycart(addToCart.elem)
+   
+//   });
+//   document.querySelector("body").append(myCart);
+
+
+
+  var mensData = JSON.parse(localStorage.getItem("mensData"));
+var cartArr = JSON.parse(localStorage.getItem("Items")) || [];
+displayData(mensData);
+// mensData.map(function(elem){
+  function displayData(mensData){
+    document.querySelector("#ram").innerHTML = "";
+    mensData.map(function(elem){
+
+   
+  
+    var mainDiv = document.createElement("div");
+
+
+    var img = document.createElement("img");
+    img.setAttribute("src",elem.image_url)
+
+    var name= document.createElement("b")
+    name.innerText = elem.name
+
+    var innerDiv = document.createElement("div")
+
+    var price = document.createElement("p")
+    price.innerText = elem.price
+
+    var strikedoffprice = document.createElement("s")
+    strikedoffprice.innerText = elem.strikedoffprice
+
+    innerDiv.append(price,strikedoffprice)
+    innerDiv.setAttribute("class","priceDiv")
+
+     // addtocart botton creation
+     var cart = document.createElement("button")
+    cart.innerText = "Add to Cart"
+    cart.addEventListener("click",function(){
+     addToCart(elem)
+     
+    })
+    mainDiv.append(img,name,innerDiv,cart);
+  
+    
+    document.querySelector("#ram").append(mainDiv);
+   
+})
+  
+function addToCart(elem){
+  console.log(elem);
+  cartArr.push(elem);
+  console.log(cartArr)
+  localStorage.setItem("Items",JSON.stringify(cartArr));
+  
+}
+  }
+function sortItems(){
+  var sorting = document.getElementById("sorter").value;
+  console.log(sorting)
+  if(sorting == "h2l"){
+    mensData.sort(function(a,b){
+      return b.price - a.price
+    })
+    displayData(mensData);
+  }
+  else if(sorting == "l2h"){
+    mensData.sort(function(a,b){
+      return a.price - b.price
+    })
+    displayData(mensData)
+  }
+}
+
+function search(){
+  var searchText = document.getElementById("search").value;
+  console.log(searchText)
+   var filterData = mensData.filter(function(item){
+     return item.name.includes(searchText);
+   });
+   console.log(filterData)
+   displayData(filterData);
+
+   document.getElementById("items").innerText = filterData.length;
+}
+
+
+function filterItems(){
+  var filter  = document.getElementById("filter").value;
+  console.log(filter)
+   var filterData = mensData.filter(function(item){
+     return item.price > Number(filter);
+   });
+   console.log(filterData)
+   displayData(filterData);
+
+   document.getElementById("items").innerText = filterData.length;
+  }
+  // for simmuletensioly shoeing
+   function filters(){
+
+    var filter  = document.getElementById("filter").value;
+
+    var searchText = document.getElementById("search").value;
+
+    var sorting = document.getElementById("sorter").value;
+   }
+   function clearfilters(){
+     mensData.JSON.parse(localStorage.getItem("mensData"));
+     displayData(mensData);
+     document.getElementById("items").innerText = mensData.length ;
+
+     document.getElementById("search").value = "";
+     document.getElementById("sorter").value = "";
+     document.getElementById("filter").value = "";
+   }
+
+</script>
+
+
+<!-- if we want to store in localstorage
+we have to give the link in script
+src = ./data.mensdata..js -->

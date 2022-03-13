@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father{
+           
+            height: 150px;
+            width: 30%;
+            margin: auto;
+            
+            
+        }
+        .father>h1{
+            padding: 0,10px;
+            text-align: center;
+        }
+        .father>p{
+            text-align: center;
+        }
+       
+        .ram{
+            
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: 350px;
+            width: 60%;
+            margin: auto;
+            grid-template-rows: auto;
+            
+       }
+       .ram>div{
+        
+        text-align: center;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+       }
+       
+       .ram h1{
+           color: green;
+       }
+       p+p{
+        padding: 0,10px;
+       }
+       .bot{
+           font-size: 20px;
+           border:1px solid blue;
+           padding: 5px 10px;
+           color: blue;
+           background-color: white;
+           margin-bottom: 20px;
+       }
+       .sbot{
+           font-size: 20px;
+           border:1px solid blue;
+           padding: 5px 10px;
+           color: white;
+           background-color: rgb(12, 54, 240);
+           margin-bottom: 20px;
+       }
+       #re{
+           color: tomato;
+       }
+       #rs{
+           color:lightskyblue ;
+       }
+      @media all and (min-width:382px) and (max-width:780px){
+       .ram{
+           grid-template-columns:repeat(2,1fr)
+       }
+       .father>h1{
+            padding: 0;
+            
+        }
+        .father{
+            text-align:left;
+            width: 100%;
+        }
+      }
+     @media all and (min-width:250px) and (max-width:381px){
+         .ram{
+             grid-template-columns: repeat(1,1fr);
+         }
+         .father>h1{
+            padding: 0;
+            
+        }
+        .father{
+            text-align:left;
+            width: 100%;
+        }
+     
+     
+     
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <h1>choose a plan taht right for your business</h1>
+        <p>we collect review from our users so you can get an honest openion what are exprince of our website you really like!</p>
+    </div>
+     <div class="ram">
+         <div>
+             <h2>starter plan</h2>
+             <h1>Free</h1>
+             <p>per month</p>
+             <p>we collect review from our users so you can get an honest openion what are exprince of our website you really like!</p>
+             <button class="bot">start now</button>
+         </div>
+         <div><h2>Business plan</h2>
+            <h1 id="re">$39.00</h1>
+            <p>per month</p>
+            <p>we collect review from our users so you can get an honest openion what are exprince of our website you really like!</p>
+            <button class=" sbot">start now</button></div>
+         <div><h2>Premium plan</h2>
+            <h1 id="rs">$59.00</h1>
+            <p>per month</p>
+            <p>we collect review from our users so you can get an honest openion what are exprince of our website you really like!</p>
+            <button class="bot">start now</button></div>
+     </div>
+</body>
+</html>
