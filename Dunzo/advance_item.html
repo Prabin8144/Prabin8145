@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\advance_item.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles\navbar2.css">
+</head>
+<body>
+    <div id="navbar123"></div>
+
+
+        <!----------------------------- Box Below the Nav Bar -------------------------------------->
+
+        <div id="head">
+        <p id="name"></p>
+        <div id="part1">
+        <div id="part1a">
+        <div id="image0">
+        <img src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/VkhWK3pPRVhqYmZzalF2SnlzSEczUT09-1577703419915-store_image.jpg">
+        </div>
+
+        <div id="image1">
+        <h1>Shree Ganesh Store</h1>
+        <p>Andheri East</p>
+        </div>
+        </div>
+        </div>
+
+        <hr/>
+        <div id="search">
+        <img src="">
+        <input type="search" id="searchBar" placeholder="Search in Shree Ganesh Store">
+        </div>
+        <div>
+
+        <hr/>
+        <div id="products">
+        <div id="products1">
+        <button onclick="displayitems(event,'covidEssentials')" style="font-size: large; font-weight: bold; color: green;">paan </button>
+        <button onclick="displayitems(event,'breakfast')">Breakfast</button>
+        <button onclick="displayitems(event,'snacks')">Snacks</button>
+        <button onclick="displayitems(event,'provisions')">Provisions</button>
+        <button onclick="displayitems(event,'instantFoods')">Instant Foods</button>
+        <button onclick="displayitems(event,'babyproducts')">Baby Products</button>
+        <button onclick="displayitems(event,'petFoods')">Pet Foods</button>
+        <button onclick="displayitems(event,'chocolates')">Chocolates</button>
+        </div>
+
+
+        <div id="products2">
+        <div id="heading"><p>paan </p></div>
+        <div id='prds'></div>
+        </div>
+        <div id="products3">
+        <p>Your Cart</p>
+        <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-7e84056f44993b68d14184f9b2992af7.png">
+        <h4>Your cart is empty</h4>
+        <br> 
+        <h4>Add items to get started</h4>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <script src="scripts\advance_item.js"></script>
+</body>
+</html> 
+
+<script type="module">
+    import {navbar2} from "./components/navbar.js";
+    document.getElementById("navbar123").innerHTML = navbar2();
+  
+    let cartItems = document.getElementById("cartItems123");
+      let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+      if(cartArr.length===0){
+          cartItems.style.display = "none";
+      }
+      else{
+          cartItems.innerText = cartArr.length;
+          console.log(cartArr.length);
+          cartItems.style.display = "block";
+      }
+  </script>

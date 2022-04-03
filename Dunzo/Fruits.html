@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://kit.fontawesome.com/1b46272ac0.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="styles\Fruits.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles\navbar2.css">
+   
+    
+
+</head>
+<body>
+
+    <!-- navbar -->
+
+
+    <div id="navbar123"></div>
+
+
+
+  <!-- ______________________________________________________________________________________________________________________________________ -->
+       
+       <!-- header section -->
+
+               <div id="home">
+                   <div class="home-inside">
+                       <div class="home-div">
+                           <a class="green" href="https://www.dunzo.com/bangalore">Home</a>
+                           <i class="fas fa-arrow-right"></i>
+                           <a class="green" href="https://www.dunzo.com/mumbai">Mumbai</a>
+                           <i class="fas fa-arrow-right"></i>
+                           <div class="gray">Fruits & Vegetables</div>
+                        </div>
+                   </div>
+               </div>
+
+        <!-- fruits & vegetables section  -->
+               <div id="fruits">
+
+                   <div class="heading">
+                       <div id="image-div">
+                            <img src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/fruitsVegetables.png?tr=w-88,h-88,cm-pad_resize" alt="">
+                       </div>
+                          
+                       <div id="text-div">
+                               <h1>Fruits & Vegetables in Mumbai</h1>
+                               <p>162 Stores</p>
+                       </div>
+                   </div>
+
+                   <!-- details -->
+
+             <div id="main">
+
+                 <!-- start of the box -->
+                        <!-- <div class="box">
+                            <a href="https://www.dunzo.com/mumbai/arihantha-vegetables-fruits-marol-military-road">
+                                <div class="box-inside">
+                                    <div class="image">
+                                    <img src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/Y0t0N1ltTWl5OHh1M0Y0VjdrTjBOdz09-1580895145639-store_image.jpg" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <h3>Arihanta Vegetables  & Fruits</h3>
+                                        <p>Marol Military Road</p>
+                                        <p>0.7 km</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div> -->
+
+              <!-- end of the box  -->
+        
+            </div>
+                   
+
+                  
+
+             <!-- footer section -->
+
+                </div>
+
+
+      </div>
+</body>
+</html>
+
+
+<script src="scripts\Fruits.js"></script>
+
+<script type="module">
+    import {navbar1} from "./components/navbar.js"
+    let navbar = document.getElementById("navbar123");
+    navbar.innerHTML = navbar1();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+        cartItems.style.display = "none";
+    }
+    else{
+        cartItems.innerText = cartArr.length;
+        console.log(cartArr.length);
+        cartItems.style.display = "block";
+    }
+</script>
+
+

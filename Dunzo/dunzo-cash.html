@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles\navbar.css">
+
+</head>
+<body>
+    <div id="navbar123"></div>
+<div id="main"></div>
+</body>
+</html>
+<script type="module">
+    import {navbar3} from "./components/navbar.js"
+    let navbar = document.getElementById("navbar123");
+    navbar.innerHTML = navbar3();
+
+    import sidebar from "./components/sidebar.js"
+    let main = document.getElementById("main");
+    main.innerHTML = sidebar();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+    cartItems.style.display = "none";
+    }
+    else{
+    cartItems.innerText = cartArr.length;
+    console.log(cartArr.length);
+    cartItems.style.display = "block";
+    }
+   
+</script>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fish&Meat....</title>
+    <link rel="stylesheet" href="styles\navbar.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="dns-prefetch" href="https://d2r1yp2w7bby2u.cloudfront.net">
+     <link rel="stylesheet" href="./styles/meatfish.css">
+</head>
+<body>
+    <div id="navbar123">
+
+    </div>
+    <div id="father">
+    <div id="content-head">
+    <div id="FishHome">
+        <div id="imghome">
+   <img src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/meatFish.png?tr=w-88,h-88,cm-pad_resize" 
+    height="64px" width="64px" box-sizing = "border-box" >
+</div>
+  
+    <div id="textc">
+        <h1 id="mt">Order Meat & Fish</h1>
+        <p id="stores">187 Stores</p>
+    </div>
+</div>
+</div>
+</div>
+<!-- all the body part -->
+
+<div id="allmeat">
+
+</div>
+
+</body>
+</html>
+<script type="module">
+    import {navbar1} from "./components/navbar.js";
+    document.getElementById("navbar123").innerHTML = navbar1();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+        cartItems.style.display = "none";
+    }
+    else{
+        cartItems.innerText = cartArr.length;
+        cartItems.style.display = "block";
+    }
+
+</script>
+<script src="./scripts/meatFish.js">
+
+</script>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/1b46272ac0.js" crossorigin="anonymous"></script>
+      
+    <link rel="stylesheet" href="styles\Arihantha.css">
+    <link rel="stylesheet" href="styles\navbar2.css">
+    
+</head>
+<body>
+         <!-- navbar -->
+
+        <div id="navbar123"></div>
+
+<!-- ______________________________________________________________________________________________________________________________________ -->
+
+<!-- header section -->
+
+       <div id="home">
+           <div class="home-inside">
+               <div class="home-div">
+                   <a class="green" href="https://www.dunzo.com/bangalore">Home</a>
+                   <i class="fas fa-arrow-right"></i>
+                   <a class="green" href="https://www.dunzo.com/mumbai">Mumbai</a>
+                   <i class="fas fa-arrow-right"></i>
+                   <a class="green" href="https://www.dunzo.com/mumbai">Moral</a>
+                   <i class="fas fa-arrow-right"></i>
+                   <div class="gray">Arihantha Vegetables & Fruits</div>
+                </div>
+           </div>
+       </div>
+
+       <!-- fruits & vegetables section  -->
+
+    
+
+        <div id="headingg">
+            <div id="fruits-image">
+                 <img src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-250,h-250,cm-pad_resize_store_thumbnail/stores/Z2tyRTQzenRKeW4xYW04ekxoV3BSZz09-1577703419991-store_image.jpg" alt="">
+            </div>
+               
+            <div id="text-div">
+                    <h1>Arihantha Vegetables & Fruits</h1>
+                    <p>Moral Military Road</p>
+            </div>
+            
+        </div>
+
+  <!-- search___________________________________________________________________________________________________________________________________________________ -->
+       
+
+    <div id="search">
+    <img src="https://th.bing.com/th/id/OIP.IhhKiBKbh_OY6fpSO3ibswHaHa?w=184&h=184&c=7&r=0&o=5&pid=1.7">
+    <input type="text" id="search-bar" placeholder="Search in Arihantha Vegetables & fruits">
+    </div>
+    <div>
+
+ <!-------Items container-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+      
+     
+        <div id="products">
+        <div id="products1">
+        <button onclick="displayitems(event,'PBO')" style="font-size: large; font-weight: bold; color: green;">Fresh Fruits</button>
+        <button onclick="displayitems(event,'cuts')">Fresh Vegetable</button>
+        <button onclick="displayitems(event,'herbs')">Fresh Herbs</button>
+        <button onclick="displayitems(event,'veg')">Cuts And Sprouts</button>
+
+        </div>
+
+
+        <div id="products2">
+        <div id="heading"><p>Fresh Fruits</p></div>
+        <div id='prds'></div>
+        </div>
+        <div id="products3">
+        <p>Your Cart</p>
+        <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-7e84056f44993b68d14184f9b2992af7.png">
+        <h4>Your cart is empty</h4>
+         <h4>Add items to get started</h4>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        <!-- -------------------------------------------------------------------------------- -->
+
+
+
+</body>
+</html>
+
+<script type="text/javascript" src="scripts\Arihantha.js"></script>
+<script type="module">
+    import {navbar2} from "./components/navbar.js"
+    let navbar = document.getElementById("navbar123");
+    navbar.innerHTML = navbar2();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+        cartItems.style.display = "none";
+    }
+    else{
+        cartItems.innerText = cartArr.length;
+        console.log(cartArr.length);
+        cartItems.style.display = "block";
+    }
+</script>
+

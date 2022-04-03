@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles\payment.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles\navbar.css">
+
+
+</head>
+<body>
+    <div id="navbar123"></div>
+    <div class="popup" id="popup">
+        
+       
+
+       
+
+
+        <form id="cardform" class="form">
+            <input id="cardNo" class="form" type="number" placeholder="Enter Card No" size="32"/>
+            <input id="name" class="form" placeholder="Cardholder Name." size="32"/>
+            <input id="cvv" class="form" type="password" placeholder="CVV" size="32"/>
+            <input id="mobileNo"  class="form" type="number" placeholder="Mobile No." size="32"/>
+            <input type="submit" class="form" id="submit"  value="Save Card & Pay"/>
+        </form>
+        <button id="close" style="font-size: larger;"> Close</button>
+        
+    </div>
+
+<div id="main"></div>
+</body>
+</html>
+<script type="module">
+    import {navbar3} from "./components/navbar.js"
+    let navbar = document.getElementById("navbar123");
+    navbar.innerHTML = navbar3();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+    cartItems.style.display = "none";
+    }
+    else{
+    cartItems.innerText = cartArr.length;
+    console.log(cartArr.length);
+    cartItems.style.display = "block";
+    }
+    
+    import sidebar from "./components/sidebar.js"
+    let main = document.getElementById("main");
+    main.innerHTML = sidebar();
+   let pgdata = document.getElementById("pgdata");
+   let card = document.createElement("button");
+    card.innerText = "Pay using Debit/Credit Card";
+    card.id = "cardbtn";
+    pgdata.append(card);
+    card.addEventListener("click",()=>{
+        openPopUp();
+    })
+   let popup = document.getElementById("popup");
+    function openPopUp(){
+      
+        popup.classList.add("openpopUp")
+    }
+    document.getElementById("close").addEventListener("click",()=>{
+        closepopup();
+    })
+    
+    
+ 
+</script>
+<script>
+    document.querySelector("#cardform").addEventListener("submit",submitForm);
+    let cardArr =  JSON.parse(localStorage.getItem("card"))||[] ;
+    console.log(cardArr) 
+ 
+    
+     function submitForm (event){
+         event.preventDefault();
+          cardObj = {
+            cardNo : document.getElementById("cardNo").value,
+            name : document.getElementById("name").value,
+            cvv : document.getElementById("cvv").value,
+            mobileNo : document.getElementById("mobileNo").value
+         }
+         
+         cardArr.push(cardObj);
+        
+ 
+         localStorage.setItem("card",JSON.stringify(cardArr));
+         window.location.href="otp.html"
+
+     }
+
+     function closepopup(){
+        popup.classList.remove("openpopUp");
+        pgdata = document.getElementById("pgdata");
+        appendAdd(cardArr,pgdata)
+        
+    }
+     
+     function appendAdd(data,main){
+         main.innerHTML = null;
+         data.map(function(el){
+             addBox = document.createElement("div");
+             addBox.id = "addBox";
+ 
+             let cardNo = document.createElement("p");
+             cardNo.innerText = "Card No: "+el.cardNo;
+ 
+             let name = document.createElement("p");
+             name.innerText = "Cardholder Name: "+el.name;
+ 
+             let cvv = document.createElement("p");
+            //  cvv.innerText = "Pincode: "+el.pincode;
+ 
+             let mobile = document.createElement("p");
+             mobile.innerText = "Mobile No: "+"+ 91 "+el.mobileNo;
+             
+ 
+             addBox.append(name,cardNo,mobile);
+             main.append(addBox);
+ 
+         })
+     }
+ </script>
+     
+ 

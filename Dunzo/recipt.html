@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main{
+            margin: auto;
+            justify-content: center;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            width: 50%;
+            padding: 30px ;
+
+        }
+        #Body{
+            line-height: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <h1 style="text-align: center;">Invoice</h1>
+        <hr>
+        <div id="Body"></div>
+    </div>    
+        
+</body>
+</html>
+
+<!-- dCart -->
+<script>
+    let item = JSON.parse(localStorage.getItem("dCart"))
+    console.log(item);
+    appendData = (item,place)=>{
+        place.innerHTML = null;
+        item.forEach(function(el){
+           let product = document.createElement("div");
+            
+           let prodName = document.createElement("h3");
+           prodName.innerText = el.name;
+
+           let price = document.createElement("h4");
+           price.innerText = "Price per piece : "+ el.price;
+
+           let qty = document.createElement("h4");
+            qty.innerText = "Qty. : "+ el.qty;
+
+
+            let hr = document.createElement("hr");
+
+            
+            
+
+            product.append(prodName,qty,price,hr);
+            place.append(product);
+        
+        })
+        
+        
+
+        
+    }
+    let Body = document.getElementById("Body");
+
+    appendData(item,Body);
+    var total_price = 0;
+            for(let i=0; i<item.length;i++){
+                total_price += item[i].price * item[i].qty ;
+
+                
+            }
+    let total = document.createElement("h3");
+            total.style.color = "red"
+        total.innerText = "Total Price : " + total_price;
+       
+
+        let close = document.createElement("button");
+        close.id = "close";
+        close.innerText = "Close";
+        close.addEventListener("click", ()=>{
+            window.location.href="../index.html"
+        })
+
+        Body.append(total,close);
+</script>

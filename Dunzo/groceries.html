@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\groceries.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles\navbar2.css">
+</head>
+<body>
+    <div id="navbar123"></div>
+    
+
+    <div>
+        <div id="head">
+            <p id="name"> </p>
+            <div class="image">
+                <div id="image0">
+                    <img src="https://ik.imagekit.io/dunzo/icons/website/bluegreen/category/grocery.png?tr=w-88,h-88,cm-pad_resize">
+                </div>
+            <div id="image1">
+                <h2 id="location1">Groceries & Essentials in Mumbai</h2>
+                <h4>200 Stores</h4>
+            </div>
+        </div>
+    </div>
+
+    <div id="body"></div>
+</body>
+</html>
+
+<script type="text/javascript" src="scripts\groceries.js"></script>
+<script type="module">
+    import {navbar1} from "./components/navbar.js"
+    let navbar = document.getElementById("navbar123");
+    navbar.innerHTML = navbar1();
+
+    let cartItems = document.getElementById("cartItems123");
+    let cartArr = JSON.parse(localStorage.getItem("dCart")) || [];
+    if(cartArr.length===0){
+        cartItems.style.display = "none";
+    }
+    else{
+        cartItems.innerText = cartArr.length;
+        console.log(cartArr.length);
+        cartItems.style.display = "block";
+    }
+</script>
