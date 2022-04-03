@@ -1,9 +1,9 @@
 # Dunzo
-Hello, hope you are doing well. I am Rounak Abraham a FT-WEB-16 student at Masai School. Currently I am in Unit-3. 
-Its the construct week and me and my teammates Sangam Kumar Singh, Ratnesh Pandey, Neha Kumari, Ravi Bhushan and K Prabina Choudhury cloned the website dunzo.com. 
+Hello, hope you are doing well. I am K Prabina Choudhury a FT-WEB-16 student at Masai School. Currently I am in Unit-3. 
+Its the construct week and me and my teammates Sangam Kumar Singh, Ratnesh Pandey, Neha Kumari, Ravi Bhushan and Rounak Abraham cloned the website dunzo.com. 
 Dunzo is an Indian company that delivers groceries and essentials, fruits and vegetables, meat, pet supplies, food, and medicines in major cities.
 We have used HTML, CSS and Java Script to build this website.
-When you visit our website you will directed to the landing page by default. The landing page is made by me. The image below is the screenshot of our landing page:
+When you visit our website you will directed to the landing page by default. The landing page is made by Rounak. The image below is the screenshot of our landing page:
 ![Screenshot (57)](https://user-images.githubusercontent.com/100183222/161419353-80e8c085-2c7f-414a-bf9b-551f74a25a28.png)
 
 You need to click on the signin button on the top right corner of the website in order to signin. This is a screenshot of the signin button:
@@ -34,7 +34,7 @@ When you click on add button of the same item more than once the quantity of the
 You can also increase and decrease the quantity of the cart item by clicking on the plus and minus button of the cart items.
 If a particular item quantity is zero then it is removed from the cart.
 When you click on checkout button on the bottom right corner of the page you will be redirected to the payment page.
-Rest of the pages like fruits and vegetables which was made by Neha Kumari, meat and fish which was made by K Prabina Choudhury and pan shop which was made by Ravi Bhushan also have the same functionalities like the groceries page.
+Rest of the pages like fruits and vegetables which was made by Neha Kumari, meat and fish which was made by me and pan shop which was made by Ravi Bhushan also have the same functionalities like the groceries page.
 When you go to the payment page there is a button pay using debit/credit card. This is the screenshot of the payment page:
 ![Screenshot (67)](https://user-images.githubusercontent.com/100183222/161422655-726dbb36-0f11-405e-9a1c-38aed2612209.png)
 
