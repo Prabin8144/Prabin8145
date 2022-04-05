@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="gender">
+        <option value="">--</option>
+        <option value="male">M</option>
+        <option value="female">F</option>
+      </select>
+      <Input id="yob" type="number" placeholder="Y-O-B">
+        <button onClick =marriageAge()>click here</button>
+        
+</body>
+</html>
+<script>
+    function marriageAge(){
+  var Yob = document.getElementById("yob").value;
+  var gen =document.getElementById("gender").value;
+  
+
+  if(Yob<=2003 && gen=="female") {
+      alert("you can  marraige");
+  }
+  else if (Yob<=2021 && gen == "male"){
+    alert("you can  marraige");
+  }
+  else{
+     alert("sorry you can not ");
+  }
+   }
+</script>

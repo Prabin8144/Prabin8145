@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div id="header">
+
+  </div>
+ 
+
+  <div id="container2"></div>
+</body>
+</html>
+<script type="module">
+
+let timerId;
+
+let parent = document.querySelector("#container2");
+
+document.querySelector("body").addEventListener("onload",debounce(main,0));
+
+
+import navbar from "./navbar.js";
+
+header.innerHTML = navbar();
+
+import {appendData} from "./script.js";
+
+ async function myPromise()
+ {
+
+
+   let res = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=f");
+
+
+    let data = await res.json();
+
+    let data1 = data.meals;
+
+    appendData(data1,parent)
+
+    console.log(data1)
+   
+ }
+
+
+ async function main()
+{
+
+    try{
+
+        let data1 = await myPromise();
+
+        if(data1===undefined)
+  {
+      return false;
+  }
+
+ 
+    }
+ 
+    catch(err)
+    {
+
+        console.log("err:",err);
+ 
+    }
+   
+  }
+
+ function debounce(func,delay)
+{
+
+    if(timerId)
+    {
+        clearTimeout(timerId);
+    }
+
+
+    timerId = setTimeout(function()
+    {
+        func();
+
+    },delay);
+}
+
+</script>
+

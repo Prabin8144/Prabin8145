@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .priceDiv{
+            display: flex;
+            justify-content: space-around;
+        }
+       #ram{
+           display: flex;
+           gap: 20px;
+           justify-content: center;
+       }
+    </style>
+</head>
+<body>
+    <div id="ram">
+
+    </div>
+</body>
+</html>
+<script>
+    var data = [
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi1.jpg.pagespeed.ic.mkSk-Af1ka.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$25.00",
+        strikedOffPrice:"$95.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi2.jpg.pagespeed.ic.uBrpABaJqp.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },{
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi3.jpg.pagespeed.ic.iO_cFEPy2K.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    },
+    {
+        imgUrl:"https://preview.colorlib.com/theme/eiser/img/product/inspired-product/xi4.jpg.pagespeed.ic.kmiQW8I5wx.webp",
+        name:"LATEST MEN’S SNEAKER",
+        price:"$35.00",
+        strikedOffPrice:"$100.00"
+    }
+]
+      
+       data.map(function(elem,index,array){
+           var div =document.createElement("div")
+           var photo = document.createElement("img");
+           photo.setAttribute("src",elem.imgUrl)
+
+           var Name =document.createElement("h3");
+           Name.innerText=elem.name;
+
+           var innerDiv = document.createElement("div")
+           
+
+           var rate =document.createElement("b");
+           rate.innerText = elem.price;
+
+           var oldprice =document.createElement("s");
+           oldprice.innerText =elem.strikedOffPrice;
+
+
+           innerDiv.append(rate,oldprice)
+           innerDiv.setAttribute("class","priceDiv")
+
+           div.append(photo,Name,innerDiv);
+           document.querySelector("#ram").append(div)
+       });
+</script>

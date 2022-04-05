@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+      <div id="header">
+
+      </div>
+<div id="input">
+      <h3>Search</h3> <input type="text"   id="receipe"  placeholder="Search For a Meal...">
+    </div>
+<div id="container"></div>
+</body>
+</html>
+<script type="module">
+let timerId;
+
+let parent = document.getElementById("container");
+let parent1 = document.querySelector("#receipe");
+
+let name = parent1.value;
+
+
+
+let url = "https://www.themealdb.com/api/json/v1/1/search.php?";
+
+
+document.querySelector("#receipe").addEventListener('input',function()
+{
+  debounce(main,3000,url,name,parent,parent1);
+})
+
+import navbar from "./navbar.js";
+
+import {getData,appendData,debounce,main} from "./script.js";
+
+header.innerHTML = navbar();
+
+</script>

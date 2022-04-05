@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/838022ab7e.js" crossorigin="anonymous"></script>
+    <style>
+        #logo{
+           color: red;
+        }
+        #navbar{
+            display: flex;
+            height:100px;
+            width:1300px;
+            border: 2px solid black;
+            padding-left: 20px;
+        }
+        #k{
+            margin: 12px 80px 12px 50px;
+            height:60px;
+            width:800px;
+            border: 2px solid red;
+        }
+        #search{
+            margin: 5px;
+            height:40px;
+            width:700px;
+            border: 2px solid grey;
+        }
+        #a{
+            margin: 5px;
+            height:40px;
+            width:50px;
+        }
+        #search_results{
+            display: grid;
+            grid-template-columns: repeat(5,20%);
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <h1 ><i id ="logo" class="fa-brands fa-youtube"></i>YouTube</h1>
+        <div id="k">
+            <input id="search" type="text"/>  
+            <button id="a" onclick="searchVideos()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+       
+    </div>
+    <div id="search_results"></div> <!--video append-->
+    
+</body>
+</html>
+<script>
+
+const  search_result_div = document.getElementById("search_results") //jith data-video append kraycha to div
+
+const searchVideos = async () =>{  //j6 asynk function
+  
+    try{
+      
+        let inp = document.getElementById("search").value; //search vali value
+
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${inp}&key=AIzaSyABeHQ-1DcjTgdbVoUd5HltPW_r9bVDMfk&maxResults=20`)
+
+        let data = await res.json(); //collect in 1 place
+
+        let videos = data.items; //declare kar data mdle item video ahet ---- [items: Array(50)]
+        
+        appendVideos(videos); //call append function and ith data che jagi video pass karayche
+
+        console.log("data:",data)//consle mde data show
+        
+    }
+    catch(err){
+        console.log("err:",err)
+    }
+};
+
+let videoId = localStorage.getItem("video");
+
+const appendVideos = (data) =>{
+
+search_result_div.innerHTML = null
+
+data.forEach((el)=>{  // che andr te ahet id: {kind: 'youtube#video', videoId: 'QXhV148EryQ'}   snippet: { title: 'The D}
+
+    //  here we mmecri way to souce by distucting method   
+    
+    let div = document.createElement("div")
+
+    let name = document.createElement("p")
+    name.innerText = el.snippet.title;
+
+    let img = document.createElement("img");
+    img.src = el.snippet.thumbnails.medium.url;
+    img.addEventListener("click", function()
+    {
+            localStorage.clear("video");
+            localStorage.setItem('video',el.id.videoId);
+            window.location.href="video.html";
+            // appendVideo();
+    });
+
+div.append(img, name);
+search_result_div.append(div)
+});
+}
+</script>

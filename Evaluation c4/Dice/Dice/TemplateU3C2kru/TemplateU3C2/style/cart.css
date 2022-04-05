@@ -1,0 +1,27 @@
+#cart{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px;
+}
+#cart>div{
+    text-align: center;
+    height: 350px;
+}
+#cart>div>img{
+    height: 50%;
+    width: 100%;
+}
+#total-div{
+    display: flex;
+    flex-direction: column-reverse;
+}
+#remove{
+    background-color: rgb(25, 32, 30);
+    color:pink;
+    border-radius: 7%;
+}
+#remove:hover{
+    background-color:peachpuff;
+    color: rgb(16, 17, 17);
+    border: none;
+  }

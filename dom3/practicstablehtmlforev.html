@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td{
+            border: 1px solid red;
+            font-size: 50px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>name</td>
+                <td>math</td>
+                <td>science</td>
+                <td>geo</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+<script>
+    var result = [
+        {name:"kprabina",math:100,science:100,geo:100},
+       {name:"kprabina",math:100,science:100,geo:100},
+        {name:"kprabina",math:100,science:100,geo:100},
+        {name:"kprabina",math:100,science:100,geo:100},
+        {name:"kprabina",math:100,science:100,geo:100},
+        {name:"kprabina",math:100,science:100,geo:100},
+
+    ];
+      result.map(function(elem,index,array){
+          var row = document.createElement("tr")
+          var col1 = document.createElement("td")
+          col1.innerText = elem.name;
+          var col2 = document.createElement("td")
+          col2.innerText = elem.math;
+          var col3  = document.createElement("td")
+          col3.innerText = elem.science;
+          var col4 = document.createElement("td")
+          col4.innerText = elem.geo;
+        
+          
+          row.append(col1,col2,col3,col4)
+          document.querySelector("tbody").append(row)
+          
+      })
+      var table = localStorage.setItem("resulted",JSON.stringify(result));
+      console.log(result)
+</script>

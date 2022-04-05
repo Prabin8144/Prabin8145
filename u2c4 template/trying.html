@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles\navbar.css">
+    <script src="https://kit.fontawesome.com/32f181d7c4.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: Gilroy,sans-serif;
+            font-weight: 500;
+        }
+        #content-head{
+        box-sizing: border-box;
+        display: flex;
+        align-items: flex-start;
+        width: 100%;
+        top: 0px;
+        background: rgb(247, 253, 250);
+        }
+        #father{
+            height: 250px;
+            background: rgb(247, 253, 250);
+            
+        }
+        #father div{
+            margin: auto;
+            margin-left: 50px;
+            justify-content: center;
+          
+        }
+        #FishHome{
+            display: flex;
+            box-sizing: border-box;
+            
+        }
+        #imghome{
+            display: flex;
+            box-sizing: border-box;
+            margin: auto;
+            margin-right: 10px;
+        }
+        #imghome img{
+            height: 150px;
+            width: 150px;
+            margin-top: 20px;
+        }
+        #datas{
+            display: flex;
+            gap: 15px;
+            color: #808080;
+        }
+        #datas i{
+          margin-top: 17px;
+          color: aquamarine;
+        }
+        #datas p:first-child{
+            margin-left: -45px;
+        }
+        #datas p:last-child{
+            color: blueviolet;
+        }
+        /* for serch */
+        #search{
+            margin: auto;
+            box-sizing: border-box;
+            display: flex;
+            border-radius: 4px;
+            height: 68px;
+            background: white;
+            width: 100%;
+            border-top: 1px solid rgb(216, 216, 216);
+            border-bottom: 1px solid rgb(216, 216, 216);
+            justify-content: center;
+            
+            pointer-events: auto;
+        }
+        #put{
+            height: 40px;
+            width: 40%;
+            margin: auto;
+        }
+        /* body */
+        #bodyfather{
+              
+            box-sizing: border-box;
+            display: flex;
+            gap: 20px;
+          
+            justify-content: center;
+            
+
+
+        }
+        .buttons{
+            display: flex;
+            flex-direction: column;
+        
+        }
+        #chicken{
+           
+            width: 140px;
+            text-align: right;
+            height: 45px;
+            font-size: 15px;
+            color: rgb(136, 133, 133);
+            background-color: #fff;
+            border: none;
+        }
+        #showingfoods{
+            overflow: scroll;
+            /* display: flex;
+            flex-direction: column; */
+            /* width: 40%; */
+            display: flex;
+            flex-direction: column;
+          
+              
+        }
+        .chickens{
+            display: flex;
+            gap: 20px;
+            
+              /* overflow: scroll; */
+            overflow-x: hidden;
+            
+            
+        }
+       
+    </style>
+</head>
+<body>
+    <!-- for header -->
+    <div id="menubar">
+        <div id="menuLeft">
+            <div><img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/logo-7b2b540792556466133aea6e7c6ae513.png"></div>
+            <div class="menuTop"><select class="options"><option>Location</option></select></div>
+        </div>
+        <div id="menuRight">
+           
+            <div class="hover"><i class="fa-solid fa-cart-shopping icons"></i><p class="iconText">Cart</p></div>
+            <div class="hover"><i class="fa-regular fa-user icons"></i><p class="iconText">Profile</p></div>
+        </div>
+    </div>
+<!-- ---------------------------------------- -->
+
+<!-- for the rgb(0,210,144 color div -->
+    <div id="father">
+        <div id="content-head">
+        <div id="FishHome">
+            <div id="imghome">
+       <img src="https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/a3RHOTVjUkFJb21TNEw0ZFBCQktSZz09-1589866532874-store_image.jpg" 
+        height="64px" width="64px" box-sizing = "border-box" >
+    </div>
+      
+        <div id="textc">
+            <h1 id="mt">Meat & Fish</h1>
+            <div id="datas">
+            <p>kurla west</p>
+            <i class="fa-solid fa-clock"></i>
+         
+            <p>23 mins</p>
+            
+            <p>Free Delivery</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ............................................................. -->
+    <div id="search">
+        <i class="fa-regular fa-magnifying-glass"></i>
+         <input type="search" id="put" placeholder="Search in Supermarket">
+        </div>
+
+        <!-- body -->
+
+        <div id="bodyfather">  
+           <!-- main div flex hua he -->
+            <div id="allbody">
+                <div class="buttons">
+                <button onclick="showchicken()" id="chicken">Chicken</button>
+                <button onclick="showmatton()"id="chicken">Matton</button>
+                <button onclick="showcold()"id="chicken">Fish</button>
+                <button onclick="showsea()"id="chicken">Sea foods</button>
+                <button onclick="showeggs()"id="chicken">Eggs</button>
+                <button onclick="showready()"id="chicken">Ready To Cook</button>
+            </div>
+            </div>
+
+            <div id="showingfoods">
+                          <!-- function data are here -->
+            </div>
+
+
+            <div id="mycart">
+                <img src="https://resources.dunzo.com/web-assets/prod/_next/static/images/no-items-in-cart-961121d0aa2fa3f06b4bda1c7f93ae51.png" alt="60px">
+
+                
+
+                
+            </div>
+
+        </div>
+</body>
+</html>
+<script>
+       function showchicken(){
+      
+
+           let chickenobj = [{url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/MGdFRlFaM00wMjdlY0wva0lqRlhQQT09-product_image.jpg",name:"Chicken Breat strips", price:123},
+           {url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/1646206064623_product_5bcf812a752feb5014a2e2d5_1.jpg",name:" Boneless Chicken", price:523},
+           {url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/RTd1WE5ndkh0WHVmdE1aQ3ZQVWlaQT09-product_image.jpg",name:"Chicken Fry Cut", price:233},
+           {url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/1644858426890_product_5cb462e6f3995b3a4e6da393_1.jpg",name:"Chicken Curry Cut", price:543},
+           {url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/S1RCdjFobVJkZzZXaWs4VkM3OEhrQT09-product_image.jpg",name:"Broiler Chicken", price:223},
+           {url:"https://ik.imagekit.io/dunzo/tr:w-144,h-144,cm-pad_resize/YXpwaFhHTWRyemVITWtHcHJaQkhJQT09-product_image.jpg",name:"Chicken Cury cut With Skin", price:278}
+        ]
+        // document.querySelector("#showingfoods").innerText = null;
+
+       
+      chickenobj.forEach(function(el){
+        
+        
+
+          let div = document.createElement("div")
+          div.classList.add("chickens")
+         
+          let div2 = document.createElement("div")
+          div2.classList.add("chickens2")
+
+          let div3 = document.createElement("div")
+          div3.classList.add("chickens3")
+
+          let img = document.createElement("img")
+          img.src = el.url;
+            div2.append(img);
+
+          let Name = document.createElement("p")
+          Name.innerText = el.name;
+          Name.style.fontFamily = "bold"
+          Name.style.fontSize = "20px"
+
+          let inp = document.createElement("option")
+          inp.innerText = "1 KG";
+
+          let price = document.createElement("b")
+          price.innerText  = '₹'+el.price;
+          price.setAttribute("id","price");
+
+          let ndiv = document.createElement("div")
+            ndiv.append(div2,div3)
+          div3.append(Name,inp,price)
+  
+
+          let div4 = document.createElement("div")
+          div4.style.marginLeft = "60px"
+          let btn = document.createElement("button")
+          btn.setAttribute("id","addtocart")
+            btn.addEventListener('click',function(el){
+                moveToCart();
+            });
+          btn.innerText = "+ ADD"
+          btn.style.color = "rgb(0,210,144";
+          btn.style.backgroundColor = "white"
+          btn.style.border = "none"
+          btn.style.fontSize = "20px"
+
+          let cus = document.createElement("p")
+          cus.innerText = "CUSTOMIZABLE";
+          cus.style.fontSize = "7px";
+          cus.style.color = "#808080"
+
+          div4.append(btn,cus);
+          div.append(div2,div3,div4);
+
+          document.querySelector("#showingfoods").append(div)
+          
+
+   
+         
+
+      })
+      function moveToCart(elem){
+        var cartArr = JSON.parse(localStorage.getItem("Items"))||[]
+  
+        console.log(elem);
+        cartArr.push(elem);
+        console.log(cartArr)
+        localStorage.setItem("Items",JSON.stringify(cartArr));
+  
+    
+}
+    }
+    // for allways showing......................................
+    // showchicken()
+   

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    
+<div id="header"></div>
+<div class="container">
+<div class="left">
+
+</div>
+<div id="main"></div>
+</div>
+</body>
+</html>
+
+<script type="module">
+
+    import header from './components/header.js';
+    document.getElementById('header').innerHTML = header();
+
+    let input_box = document.getElementById('search-input');
+    input_box.addEventListener('keypress', () =>{
+        getData(event)
+    })
+
+
+    let logoImg= document.getElementById('profile-img');
+    const getData = async(e) =>{
+        try {
+            if(e.code==='Enter'){
+            let input = input_box.value;
+            let url =  `https://api.github.com/users/${input}/repos`;
+            let res = await fetch(url);
+            let data = await res.json();
+            console.log(data);
+            rightAppend(data)
+            leftApped(data)
+            logoImg.src =data[0].owner.avatar_url;
+            
+        }    
+        } catch (error) {
+            console.log(error)
+            alert('User not found')
+        
+        }
+      
+
+    }
+
+    const leftApped = (data) =>{
+        document.querySelector('.left').innerHTML = "";
+        let div = document.createElement('div');
+            div.classList.add('container');
+
+            let img = document.createElement('img');
+            img.src = data[0].owner.avatar_url;
+
+            let name = document.createElement('h1');
+            name.innerHTML = data[0].owner.login;
+
+        div.append(img,name);
+        document.querySelector('.left').append(div);
+    }
+
+    const rightAppend = (data) =>{
+        document.getElementById('main').innerHTML = '';
+        data.forEach(el => {
+
+            let rightDiv = document.createElement('div');
+            rightDiv.classList.add('right');
+
+
+            let p = document.createElement('p');
+            p.innerHTML = el.description;
+
+
+
+            let repoName = document.createElement('h3');             
+            repoName.innerHTML = el.name;
+
+
+            rightDiv.append(repoName,p);
+
+        
+        
+        document.getElementById('main').append(rightDiv);
+        
+
+        });
+
+    }

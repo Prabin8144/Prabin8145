@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        #ram{
+            display: flex;
+            gap: 20px;
+           justify-content: center;
+        }
+        h4{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+        p+img{
+           padding-left: 130px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ram"></div>
+</body>
+</html>
+<script>
+    var investor = [{Name:"vijay sankar sharma",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",comapnyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",role:"co-Founder & CEO",},
+    {Name:"k prabina choudhury",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",comapnyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",role:"co-Founder & CEO",},
+    {Name:"chandra sekhar",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",comapnyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png",role:"co-Founder & CEO",},
+    {Name:"avinash sharma",image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/bhanu_pratap_singh_sharechat_11fdd7b47a.jpg",comapnyLogo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/sharechat_rect_73d95cd4e1.svg",role:"co-Founder & CEO",},
+    ];
+   
+    
+  investor.map(function(elem,index,array){
+    var box =document.createElement("div");
+   
+
+      var photo =document.createElement("img");
+      photo.setAttribute("src",elem.image);
+
+      var name =document.createElement("h4");
+      name.innerText = elem.Name
+      var role =document.createElement("p");
+      role.innerText =elem.role
+      var logo =document.createElement("img");
+      logo.setAttribute("src",elem.companyLogo)
+      box.append(photo,name,role,logo);
+      document.querySelector("#ram").append(box);
+  });
+</script>

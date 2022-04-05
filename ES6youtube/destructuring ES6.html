@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>youtube</h1>
+
+    <input type="text" id="search">
+
+    <button onclick="searchVideos()">Search</button>
+
+    <div id="search_results"></div>
+</body>
+</html>
+<script>
+//   url =  https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=football&key=[YOUR_API_KEY] 
+
+// api key sirs = AIzaSyAXb4WnRThZhHa7cCDKNwLZCRiXwI9zVaU
+
+
+// api key mine = AIzaSyBgYuHrtygKwJ0DNLKhbhFiPm5lBRemJl0
+// me 2nd api = AIzaSyA3NC5lZmb59njpJpALlKeSSJz28JG_1Uk
+
+
+// new project api =AIzaSyD5O-gituDvhTKjsiDWNWqTgLCTvC2A26E
+
+// embad = https://www.youtube.com/embed/MYr6wINK8nQ  limk
+
+//  iframe link sirs
+
+const  search_result_div = document.getElementById("search_results")
+
+const searchVideos = async () =>{
+  
+    try{
+      
+        let inp = document.getElementById("search").value;
+
+        let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${inp}&key=AIzaSyD5O-gituDvhTKjsiDWNWqTgLCTvC2A26E&maxResults=50`)
+
+        let data = await res.json();
+
+        // write
+
+        let videos = data.items;
+        
+        appendVideos(videos);
+
+        console.log("data:",data)
+        
+    }
+    catch(err){
+        console.log("err:",err)
+    }
+};
+
+
+
+const appendVideos = (data) =>{
+
+
+    search_result_div.innerHTML = null
+data.forEach(({snippet :{title},id :{videoId}})=>{
+    
+
+    //  here we mmecri way to souce by distucting method
+   
+    
+    let div = document.createElement("div")
+
+    let name = document.createElement("p")
+    name.innerText = title;
+
+    let iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${videoId}` ;
+
+    iframe.height = "120px"
+    iframe.width = "120px"
+    // for full screen
+    iframe.allow = "fullscreen";
+
+div.append(iframe,name);
+search_result_div.append(div)
+});
+}
+
+
+
+</script>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/838022ab7e.js" crossorigin="anonymous"></script>
+    <style>
+        #logo{
+           color: red;
+        }
+        #navbar{
+            display: flex;
+            height:100px;
+            width:1300px;
+            border: 2px solid black;
+            padding-left: 20px;
+        }
+        #k{
+            margin: 12px 80px 12px 50px;
+            height:60px;
+            width:800px;
+            border: 2px solid red;
+        }
+        #search{
+            margin: 5px;
+            height:40px;
+            width:700px;
+            border: 2px solid grey;
+        }
+        #a{
+            margin: 5px;
+            height:40px;
+            width:50px;
+        }
+        #search_results{
+            display: grid;
+            grid-template-columns: repeat(4,20%);
+            gap: 50px;
+            padding-left: 130px;
+        }
+        img{
+            height: 250px;
+            width: 250px;
+        }
+    </style>
+</head>
+<body onload="mostpopularVideos()">
+
+    <div id="navbar">
+        <h1 ><i id ="logo" class="fa-brands fa-youtube"></i>YouTube</h1>
+        <div id="k">
+            <input id="search" type="text"/>  
+            <button id="a" onclick="searchVideos()"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+       
+    </div>
+    <div id="search_results"></div> <!--video append-->
+    
+</body>
+</html>
+<script>
+// fetch most popular video,
+//append them on defact screen
+const mostpopularVideos = async ()=> {
+      try{
+      let inp  = document.getElementById("search").value
+
+      let res = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&q=football&chart=mostPopular&regionCode=IN&&key=AIzaSyDFmLMbh6gtx22dOE3azXvoVJAOySIoHK8&maxResults=20`)
+
+      let data = await res.json();
+
+      let videos = data.items
+
+      mostPopular(videos)
+
+      console.log("data:",data)
+    }
+    catch(error){
+        console.log("error:", error)
+    }
+}
+
+var main_div  = document.getElementById("search_results")//screen append karayche video
+
+//append most popular video in default screen
+const mostPopular = (data)=>{
+
+main_div.innerHTML=null
+
+data.forEach((elem)=>{ 
+
+let div1 = document.createElement("div")
+div1.style="width:150; height:100"
+// div1.style.height="100px"
+let container = document.createElement("div")
+container.setAttribute("id", "container")
+
+let p = document.createElement("p")
+p.innerText=elem.snippet.title
+
+let img = document.createElement("img")
+    img.src = elem.snippet.thumbnails.medium.url;
+
+    img.addEventListener("click", function()
+    {
+        div1.innerHTML = null;
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${elem.id.videoId}` ;//i-phrame get from share video and embed copy paste and get link inside
+        iframe.height = "400px"
+        iframe.width = "360px"
+        // for full screen
+        iframe.allow = "fullscreen"; 
+        div1.append(iframe, name)
+    })  
+div1.append(img,p)
+
+main_div.append(div1)
+
+})   
+}
+
+//search videos
+
+  const searchVideos = async ()=> {
+      try{
+      let inp  = document.getElementById("search").value
+
+      let res = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${inp}&key=AIzaSyDFmLMbh6gtx22dOE3azXvoVJAOySIoHK8&maxResults=20`)
+
+      let data = await res.json();
+
+      let videos = data.items
+
+      appendData(videos)
+
+      console.log("data:",data)
+    }
+    catch(error){
+        console.log("error:", error)
+    }
+}
+
+var main_div  = document.getElementById("search_results")
+
+const appendData = (data)=>{
+
+    main_div.innerHTML=null
+
+    data.forEach((elem)=>{ 
+   
+
+let div1 = document.createElement("div")
+div1.style="width:150; height:100"
+// div1.style.height="100px"
+let container = document.createElement("div")
+container.setAttribute("id", "container")
+
+let p = document.createElement("p")
+p.innerText=elem.snippet.title
+
+let img = document.createElement("img")
+    img.src = elem.snippet.thumbnails.medium.url;
+
+    img.addEventListener("click", function()
+    {
+        div1.innerHTML = null;
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${elem.id.videoId}` ;//i-phrame get from share video and embed copy paste and get link inside
+        iframe.height = "400px"
+        iframe.width = "360px"
+        // for full screen
+        iframe.allow = "fullscreen"; 
+        div1.append(iframe, name)
+    })  
+div1.append(img,p)
+main_div.append(div1)
+})
+}
+</script>

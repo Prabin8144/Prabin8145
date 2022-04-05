@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/838022ab7e.js" crossorigin="anonymous"></script>
+    <style>
+        #logo{
+           color: red;
+        }
+        #navbar{
+            display: flex;
+            height:100px;
+            width:1300px;
+            border: 2px solid black;
+            padding-left: 20px;
+        }
+        #k{
+            margin: 12px 80px 12px 50px;
+            height:60px;
+            width:800px;
+            border: 2px solid red;
+        }
+        #search{
+            margin: 5px;
+            height:40px;
+            width:700px;
+            border: 2px solid grey;
+        }
+        #a{
+            margin: 5px;
+            height:40px;
+            width:50px;
+        }
+        #search_results{
+            display: grid;
+            grid-template-columns: repeat(5,20%);
+            margin-left: 50px ;
+        }
+    </style>
+</head>
+<body>
+    <div id="play"></div> <!--video append-->
+</body>
+</html>
+<script>
+
+let videoId = localStorage.getItem("video");
+console.log(videoId);
+
+
+const appendVideos = (videoId) =>
+{
+    play.innerHTML = null
+
+        //  here we mmecri way to souce by distucting method   
+
+        let iframe = document.createElement("iframe");
+        iframe.src = `https://www.youtube.com/embed/${videoId}` ;//i-phrame get from share video and embed copy paste and get link inside
+
+        iframe.height = "400px"
+        iframe.width = "400px"
+    // for full screen
+        iframe.allow = "fullscreen"; 
+        play.append(iframe);
+    
+}
+appendVideos(videoId);
+
+</script>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+// only passing the value..................
+
+    // class Cat{
+    //     constructor(){
+    //         this.species = "cat";
+    //         this.legs = 4;
+    //         this.furs = true;
+    //     }
+    // }
+
+    // class Tiger extends Cat {
+    //     constructor(){
+    //         super();
+    //         this.speed = 70;
+    //     }
+    // }
+
+    // let t1 = new Tiger();
+    // console.log("t1:",t1)
+
+// end..............................
+
+
+// by parameter---------==
+
+
+    class Cat{
+        constructor(s,leg){
+            this.species = s;
+            this.legs = leg;
+            this.furs = true;
+        }
+    }
+
+    class Tiger extends Cat {
+        constructor(s,leg){
+            super(s,leg);
+            this.speed = 70;
+        }
+    }
+
+    let t1 = new Tiger("mamael",8);
+    console.log("t1:",t1)
+
+    //  s is parameter we can write any think
+
+    // we wiill pass parameter in this.leg and thn its constructor ,,thn super and thn tigers constructor and thn t1,,
+
+
+    class whiteTiger extends Tiger{
+        constructor(s,l){
+            super(s,l);
+            this.name = "simba";
+        }
+    }
+
+    let w1 = new whiteTiger("jeref",12);
+           console.log("w1",w1);
+    // ih we create new item thn we have to use super() to gets property of old items,,and via constructo we can give parameter there and change the new items property,,this is the constuctor function work....
+
+
+    // end..................
+
+    class MyStack{
+
+        constructor(){
+            this.length = 0;
+            this.stack = [];
+        }
+        //  how to push
+        push(value){
+            this.stack.push(value)
+            this.length++;
+            console.log(this.stack)
+        }
+        // pop
+        pop(){
+            this.stack.pop();
+            this.length--;
+            console.log(this.stack)
+        }
+    }
+
+    let stack  = new MyStack();
+    stack.push(2);
+    stack.push(6);
+    stack.push(4);
+    stack.pop()
+    // console.log("stack:",stack)
+
+
+
+
+    // ............pushing by es6.................
+
+
+
+
+
+
+
+
+    class MyStack1{
+
+constructor(){
+    this.length = 0;
+    this.stack = [];
+}
+//  how to push
+push(...value){
+    value.forEach((el) =>{
+    this.stack.push(value)
+    this.length++;
+    });
+    console.log(this.stack)
+   
+}
+// pop
+pop(){
+    this.stack.pop();
+    this.length--;
+    console.log(this.stack)
+}
+}
+
+let stack1  = new MyStack1();
+stack1.push(2,3,4,5,6,7);
+
+// console.log("stack:",stack)
+// end.................
+
+
+</script>

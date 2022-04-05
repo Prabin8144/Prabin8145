@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ram{
+            text-align: center;
+            font-size: 30px;
+           
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="ram"></div>
+</body>
+</html>
+<script>
+    var botton =[{text:"primary",bgcolor:"blue",color:"white"},
+    {text:"seconadry",bgcolor:"white",color:"black"},
+    {text:"success",bgcolor:"gold",color:"red"},
+    {text:"danger",bgcolor:"lemon",color:"green"},
+    {text:"lucky",bgcolor:"yellow",color:"white"},
+    {text:"light",bgcolor:"brown",color:"white"},
+    {text:"dark",bgcolor:"cyan",color:"yellow"},
+    {text:"info",bgcolor:"green",color:"white"},
+    {text:"warning",bgcolor:"red",color:"white"},
+    ];
+
+    botton.map(function(elem,index,array){
+        var box = document.createElement("div");
+        var botn1 = document.createElement("button");
+        botn1.innerText = elem.text;
+        botn1.style.backgroundColor=elem.bgcolor;
+        botn1.style.color =elem.color;
+        
+        document.querySelector("div").append(botn1);
+    })
+</script>

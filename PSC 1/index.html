@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/header.css">
+   
+</head>
+<body>
+    <div id="navbar">
+
+    </div>
+    <!-- append the ropo -->
+    <div id="main1">
+
+    </div>
+</body>
+</html>
+
+<script type="module">
+     
+    //  GITHUB LINK = `https://api.github.com/users/${input}/repos`...for user repo
+
+    //  https://api.github.com/user/followers  .. for user followers
+
+    // we use more link in this dontworry........................
+
+    import header from "./components/header.js"
+// console.log(header)
+// we can write any think in deafult but in export defult is present only thn.......
+// import {header} from "./components/header.js"  when in export not written default...
+
+    let navbar = document.getElementById("navbar")
+
+    navbar.innerHTML = header();
+// for seaching are..........................
+
+//    in ES6 we can t write onclick,onchange ,oninput in the header thats whyy we have to use addeventlistner in the append....
+
+//  here we are trying to get the data and eventlistner to it 
+
+let input_box = document.getElementById("search-input");
+
+input_box.addEventListener("keypress",() =>{
+getData(event);
+});
+
+const getData = async (e)=>{
+// /    we have  top pass the key name form the link....
+
+
+let img = document.getElementById("profile-img")
+// here we have to trying to get the cat id and change to user searchh .... thn it will apend in try{}
+try{
+if(e.code ==="Enter"){
+
+let input = input_box.value;
+
+let res = await fetch (`https://api.github.com/users/${input}/repos`)
+    
+    let data = await res.json();
+
+    img.src = data[0].owner.avatar_url
+    console.log(data)
+    leftappendrepo(data)
+    rightAppendrepo(data)
+ }
+}
+catch(err){
+    console.log(err)
+}
+};
+// end...........................gtihub1...........on click enter it will changer the profile pic................................
+// we can use try and catch or not it will work
+
+// now i am appending the repos....................................
+
+const leftappendrepo = (data)=>{
+    document.getElementById("main1").innerHTML=null;
+    let div = document.createElement("div")
+    div.innerHTML = null;
+
+    let img = document.createElement("img")
+    img.src = data[0].owner.avatar_url;
+
+    let h = document.createElement("h4")
+    h.innerText = data[0].owner.login;
+
+    div.append(img,h);
+    main1.append(div)
+
+}
+
+const rightAppendrepo = (data)=>{
+ data.forEach(el => {
+
+    let rightDiv = document.createElement('div');
+            rightDiv.classList.add('right');
+
+
+            let p = document.createElement('p');
+            p.innerHTML = el.description;
+
+
+
+            let repoName = document.createElement('h3');             
+            repoName.innerHTML = el.name;
+
+
+            rightDiv.append(repoName,p);
+
+        
+        
+        document.getElementById('main1').append(rightDiv);
+        
+ })
+}
+
+// console.log(data)
+//         data.map(function(el){
+
+
+//         // document.getElementById("main1").innerHTML=null;
+//         let div=document.createElement("div")
+//         div.setAttribute("id","ram")
+//         div.innerHTML = null
+//         let title=document.createElement("p")
+//         title.innerText=el.name;
+//         title.style.color="#4580ad";
+//        let show=document.createElement("div")
+//        show.innerText=el.visibility;
+//        show.style.color="red";
+
+//        show.setAttribute("id","visi")
+//        let fullname=document.createElement("p")
+//         fullname.innerText=el.full_name;
+//         fullname.style.color="green";
+//         fullname.style.height="8px"
+//         div.append(title,show,fullname)
+//         document.getElementById("main1").append(div)
+//     })
+//     }
+
+    
+</script>

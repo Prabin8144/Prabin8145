@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>profile details</h1>
+</body>
+</html>
+<script>
+    window.addEventListener("load",function(){
+
+        let username = localStorage.getItem("username")
+        let token = localStorage.getItem("token")
+
+        fetch(`https://masai-api-mocker.herokuapp.com/user/${username}`,{
+            method:"GET",
+            headers:{
+                Authorization:`Bearer ${token}`
+            }
+        })
+        .then((res)=> res.json())
+        .then((data) => display(data))
+        .catch((err) => console.log(err))
+    })
+
+    function display(data){
+        const div = document.querySelector("div")
+
+        const p = document.createElement("p")
+        p.innerText = name
+    }
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,td{
+            border:1px solid rgb(218, 100, 100)
+        }
+
+        
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>NAME</td>
+                <td>SCIENCE</td>
+                <td>MATH</td>
+                <td>ENGLISH</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+</body>
+</html>
+<script>
+    var tableObj=[{name:"prabina",science:100,math:100,english:25},
+    {name:"uttam",science:100,math:70,english:25},
+    {name:"tiki",science:100,math:100,english:25},
+    {name:"prsada",science:60,math:100,english:25},
+    {name:"ayush",science:50,math:100,english:25},
+    {name:"rohon",science:100,math:100,english:25},
+    {name:"prsada",science:60,math:100,english:25},
+    {name:"ayush",science:50,math:100,english:25},
+    {name:"rohon",science:100,math:100,english:25},
+    ];
+    tableObj.map(function(elem,index,array){
+        var row =document.createElement("tr");
+
+        var col1 =document.createElement("td");
+        col1.innerText = elem.name;
+
+        var col2 =document.createElement("td");
+        col2.innerText = elem.science;
+
+        var col3 =document.createElement("td");
+        col3.innerText = elem.math;
+
+        var col4 =document.createElement("td");
+        col4.innerText = elem.english;
+
+        row.append(col1,col2,col3,col4)
+
+        document.querySelector("tbody").append(row)
+        
+    })
+</script>
