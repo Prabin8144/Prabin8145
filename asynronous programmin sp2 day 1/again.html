@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="image">
+    <button onclick="storeImage()">submit image</button>
+<a href="again slideshow.html"><button>showslide</button></a>
+</body>
+</html>
+<script>
+    function storeImage(){
+
+
+    let image = document.getElementById("IMAGES").value;
+
+    let imageData = JSON.parse(localStorage.getItem("image"))||[];
+    console.log("imageData",imageData)
+
+    imageData.push(image)
+
+    localStorage.setItem("IMAGES",JSON.stringify(imageData))
+    
+    }
+</script>

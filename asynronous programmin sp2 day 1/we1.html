@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1tag"></h1>
+</body>
+</html>
+<script>
+  let h = document.getElementById("h1tag");
+   function counter(){
+       let i = 0;
+
+       setInterval(function jaddu(){
+           i = i +1;
+           h.innerText = i;
+
+           if(i==15){
+               clearInterval(h)
+           }
+       },2000)
+   }
+   counter()
+</script>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+</body>
+</html>
+
+<script>
+      var passexam = true;
+    var mypromise = new Promise(function(resolve,reject){
+        if(passexam){
+
+            resolve("bike")
+        }
+        else{
+
+            reject("paragon")
+        }
+
+    })
+
+    //  if sucess
+
+    mypromise.then(function(response){
+        // write any think in altreanetive of (resonce)
+        console.log("any think we can written here aalso",response)
+
+    })
+
+    // reject
+
+    mypromise.catch(function(error){
+             // write any think in altreanetive of (error)
+        console.log("write any think ",error)
+    })
+
+    // .then .resolve()----for positve --sucess;
+    // .catch  .reject()----for negetive---failure;
+</script>

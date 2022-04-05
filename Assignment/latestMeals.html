@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+
+    <div id="header" ></div>
+    <div id="parent" ></div>
+
+</body>
+</html>
+
+<script type="module" >
+
+    import navbar from "./components/navbar.js";
+
+
+    
+
+    let header = document.querySelector("#header");
+    header.innerHTML = navbar();
+
+    let parent = document.querySelector("#parent");
+
+
+
+    const appendData = (data, parent) => {
+        parent.innerHTML = null;
+
+        data.forEach((el) => {
+
+            let div = document.createElement('div');
+
+            let name = document.createElement('p');
+            name.innerText = el.strCategory;
+
+            let imge = document.createElement('img');
+            imge.src = el.strCategoryThumb;
+
+            div.append(imge, name);
+
+            parent.append(div);
+        });
+    };
+
+    //getting data 
+    let url = `https://www.themealdb.com/api/json/v1/1/categories.php`;
+    const getData = async (e) => {
+        try {
+            let res = await fetch(url);
+            let dataa = await res.json();
+            let data = dataa.categories;
+            console.log(data);
+
+            appendData(data, parent);
+        }  catch(error) {
+                    console.log(error);
+        }
+    } 
+    getData();
+
+    
+    
+
+
+</script>

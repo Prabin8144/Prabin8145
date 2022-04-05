@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macdonald</title>
+    <style>
+        body{
+            background-image:url("data:image/jpeg;base64,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");
+
+        }
+        #main{
+            
+            background-color: aliceblue;
+            text-align: center;
+            margin-left: 1000px;
+        }
+        #div{
+            
+            text-align: center;
+        }
+        img{
+            width: 40%;
+        }
+        #child{
+            background-color: beige;
+        }
+        legend{
+            margin-top: 500PX;
+            font-size: 50px;
+          color:rgb(15, 15, 14)
+        }
+    </style>
+</head>
+<body>
+  <fieldset>
+      <legend  >
+          Choose your food now..
+      </legend>
+      <div id="child">
+          <form id="food">
+          <input type="checkbox" value="Borger" id="Borger" class="ram">
+          <label for="Borger">Borger</label><br>
+          <input type="checkbox" value="Masala dosa" id="Masala dosa" class="ram" >
+          <label for="Masala dosa">Masala dosa</label><br>
+          <input type="checkbox" value="PuriUpma" id="PuriUpma"class="ram" >
+          <label for="PuriUpma">PuriUpma</label><br>
+          <input type="checkbox" value="Puri" id="Puri"class="ram">
+          <label for="Puri">Puri</label><br>
+          <input type="checkbox" value="Idli" id="Idli"class="ram">
+          <label for="Idli">Idli</label><br>
+          <input type="checkbox" value="Samosa" id="Samosa" class="ram">
+          <label for="Samosa">Samosa</label><br>
+          <input type="checkbox" value="Pulao" id="Pulao" class="ram">
+          <label for="Pulao">Pulao</label><br>
+          <input type="checkbox" value="Roti" id="Roti" class="ram">
+          <label for="Roti">Roti</label><br>
+          </form>
+          
+      </div>
+      <button onclick="orderFood()" id="order">Order Now</button>
+  </fieldset>
+  <!-- <div id="master"> -->
+     <div id="main">
+       <h1 id="h1">
+
+       </h1>
+       <h2 id="h2">
+
+       </h2>
+     </div>
+     <div id="div"></div>
+    <!-- </div> -->
+</body>
+</html>
+<script>
+    
+
+
+//    console.log(food.Borger.value)
+         function orderFood(){
+
+            document.getElementById("main").value = null;
+
+            document.getElementById("div").value = null;
+
+             let food = document.querySelector("#food").value;
+             console.log(food)
+
+             let status = "open";
+
+             let foodPromise = new Promise(function(resolve,reject){
+                 let time = Math.random()*10000;
+
+                 if(status=="close"){
+                     reject("shop closed! thank you")
+                     let image = document.createElement("img");
+                    image.src = "https://thumbs.dreamstime.com/z/sorry-closed-sign-hang-door-business-shop-board-nature-green-background-136417976.jpg"
+                    document.querySelector("#div").append(image)
+                 }
+                 else{
+                     setTimeout(function(){
+                         if(status=="open"){
+                             resolve(food);
+                         }
+                     },time);
+                 }
+             })
+
+            // strat..... for searching the food 
+
+             var ram = document.querySelectorAll(".ram")
+             let checkArr = [];
+             for(var i=0;i<ram.length;i++){
+                if(ram[i].checked == true){
+                   checkArr.push(ram[i].value);
+                }
+
+             }
+             console.log(checkArr)
+            //  end..... aita kale haba nahele b nai j mu check box neli ta sethi pi karibaku padila..
+
+
+             foodPromise.then(function(resolve){
+                //  console.log(`${resolve} is ready !`)
+               
+
+                document.getElementById("h2").append(`${checkArr} is ready !`)
+        
+                document.getElementById("h1").append("thnx for ordering our side your order No. is:-",order);
+
+                
+                if(checkArr=="Borger"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvxAJcSQRs2u2vkyS5GoKLm66Op0CqWt0rjg&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Masala dosa"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTBtdUoSuRASVmlqx797ZLgTyOl-5N4SfaaA&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="PuriUpma"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxFGMiuxQdscB1TUKrUBK8cthSm9wmAFAE9Q&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Puri"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSYnuLyObwLDSxOE3HbBAq3xy0fWloVDppyw&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Idli"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg_8qV-RD6-swr-stmJ9fCRNp244o91lfLvQ&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Samosa"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://img.freepik.com/free-photo/chicken-skewers-with-slices-sweet-peppers-dill_2829-18813.jpg?size=626&ext=jpg"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Pulao"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://img.freepik.com/free-photo/chicken-skewers-with-slices-sweet-peppers-dill_2829-18813.jpg?size=626&ext=jpg"
+                    document.querySelector("#div").append(image)
+                }
+
+                if(checkArr=="Roti"){
+                   
+                    let image = document.createElement("img");
+                    image.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOlgkTlkcKuVZXieX-oHrY_opqrTexH0WOHA&usqp=CAU"
+                    document.querySelector("#div").append(image)
+                }
+             });
+
+             foodPromise.catch(function(error){
+                 console.log("error",error)
+             })
+         }
+
+
+         let order = Math.floor(Math.random()*1000000000)
+    
+
+
+
+    
+</script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="query" oninput="debounce(main,3000)">
+
+    <div id="movies">
+
+    </div>
+</body>
+</html>
+<script>
+      let trimerid ;
+      let movies=document.getElementById("movies");
+      async function searchMovies(){
+          try{
+              let search = document.getElementById("query").value;
+               let res = await fetch(`http://www.omdbapi.com/?apikey=26e957db&s=${search}`)
+
+               let data = await res.json()
+                let arr_mov = data.Search
+                appendmovies(arr_mov)
+               console("data:",data)
+
+          }
+          catch(err){
+              console.log("err:",err)
+          }
+      }
+
+      function appendmovies(data){
+          movies.innerHTML = null ;
+          if(data == undefined){
+              return false
+          }
+       data.forEach(function(elem){
+           let p = document.createElement("p");
+           p.innerText = elem.Title;
+
+           movies.append(p)
+       })
+      }
+
+
+
+      async function main(){
+          try{
+          let data  = await searchMovies();
+          if(data==undefined){
+              return false;
+              
+          }
+        }catch(err){
+            console.log("err:",err)
+        }
+          
+      }
+
+
+      function debounce(func,delay){
+         console.log("trimerid:",trimerid)
+         if(trimerid){
+             clearTimeout(trimerid)
+         }
+
+        trimerid = setTimeout(function(){
+              func();
+        },delay)
+      }
+
+
+    //   we can write any thing in trimerid
+</script> 
